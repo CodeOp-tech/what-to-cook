@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const salt = 2;
 const jwt = require("jsonwebtoken");
 const secretword = process.env.SECRETWORD;
+const isUserLoggedIn = require("./guards/isUserLoggedIn");
 
 router.use(bodyParser.json());
 
@@ -44,7 +45,7 @@ router.post("/users/login", async (req, res, next) => {
         password,
         results.data[0].password
       );
-      // if pass correct pass token to front end
+      // if pass correct pass token and userId to front end
       if (passCorrect) {
         let token = jwt.sign({ userId: results.data[0].id }, secretword);
         res.send({ msg: "User OK", token });
@@ -58,6 +59,19 @@ router.post("/users/login", async (req, res, next) => {
     }
   } catch (err) {
     console.log(err);
+  }
+});
+
+//GET user id and username if token already present in browser
+router.get("/user", isUserLoggedIn, async (req, res) => {
+  console.log("User ", req.userId, " is logged in");
+  try {
+    result = await db(
+      `select id, username from users where id='${req.userId}';`
+    );
+    res.send(result.data);
+  } catch (err) {
+    res.status(400).send({ message: err });
   }
 });
 
