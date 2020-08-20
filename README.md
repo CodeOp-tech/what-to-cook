@@ -1,5 +1,5 @@
 # what-to-cook
 
-#### API routes
+## API routes
 
 ![routes](/images/api_routes.png)
