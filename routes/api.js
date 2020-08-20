@@ -48,7 +48,7 @@ router.post("/users/login", async (req, res, next) => {
       // if pass correct pass token and userId to front end
       if (passCorrect) {
         let token = jwt.sign({ userId: results.data[0].id }, secretword);
-        res.send({ msg: "User OK", token });
+        res.send({ msg: "User OK", userId: results.data[0].id, token });
       } else {
         //pass not correct
         res.status(401).send({ msg: "Incorrect login details" });
@@ -71,7 +71,30 @@ router.get("/user", isUserLoggedIn, async (req, res) => {
     );
     res.send(result.data);
   } catch (err) {
-    res.status(400).send({ message: err });
+    res.status(400).send({ msg: err });
+  }
+});
+
+//POST favourite recipe
+router.post("/favourites", isUserLoggedIn, async (req, res) => {
+  const { recipeId } = req.body;
+  try {
+    await db(
+      `insert into favourites (userId, recipeId) values ('${req.userId}', '${recipeId}')`
+    );
+    res.status(200).send({ msg: "Favourite recipe inserted!" });
+  } catch (err) {
+    res.status(400).send({ msg: err });
+  }
+});
+
+//GET favourite recipes for logged in user
+router.get("/favourites", isUserLoggedIn, async (req, res) => {
+  try {
+    result = await db(`select * from favourites where userId='${req.userId}'`);
+    res.status(200).send(result.data);
+  } catch (err) {
+    res.status(400).send({ msg: err });
   }
 });
 
