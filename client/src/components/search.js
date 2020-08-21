@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+
 
 // const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
@@ -46,4 +47,4 @@ export default class Search extends Component {
             </div>
         )
     }
-}
+
