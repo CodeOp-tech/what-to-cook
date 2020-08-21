@@ -13,6 +13,11 @@ export default class NavBar extends React.Component {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/create" activeClassName="selected">
+              Create account
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/abcd" activeClassName="selected">
               Bad URL!
             </NavLink>
