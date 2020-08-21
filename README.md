@@ -38,6 +38,9 @@ Create database
 npm run migrate
 ```
 
+Get API key from Spoonacular API
+<https://spoonacular.com/food-api>
+
 .env file has to contain
 
 ```javascript
