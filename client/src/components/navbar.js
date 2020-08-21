@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-export default class Navbar extends React.Component {
+export default class NavBar extends React.Component {
   render() {
     return (
       <nav>

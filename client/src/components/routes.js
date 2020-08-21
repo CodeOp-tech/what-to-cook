@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Homeview from "./homeview";
-import Errorview from "./errorview";
+import HomeView from "./HomeView";
+import ErrorView from "./ErrorView";
+import CreateView from "./CreateView";
 
 export default class Routes extends React.Component {
   render() {
     return (
       <Switch>
         <Route path="/" exact>
-          <Homeview />
+          <HomeView />
+        </Route>
+        <Route path="/create" exact>
+          <CreateView />
         </Route>
 
-        <Errorview />
+        <ErrorView />
       </Switch>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Homeview extends React.Component {
+export default class HomeView extends React.Component {
   render() {
     return (
       <div>

@@ -1,10 +1,8 @@
 import React from "react";
 import Search from "./components/search";
 import { BrowserRouter, Link, NavLink, Route, Switch } from "react-router-dom";
-import Navbar from "./components/navbar";
-import Routes from "./components/routes";
-import Homeview from "./components/homeview";
-import Errorview from "./components/errorview";
+import Navbar from "./components/NavBar";
+import Routes from "./components/Routes";
 
 import "./App.css";
 
