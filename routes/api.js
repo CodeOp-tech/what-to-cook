@@ -98,4 +98,17 @@ router.get("/favourites", isUserLoggedIn, async (req, res) => {
   }
 });
 
+//DELETE favourite recipe
+router.delete("/favourites", isUserLoggedIn, async (req, res) => {
+  const { recipeId } = req.body;
+  try {
+    await db(
+      `delete from favourites where userId='${req.userId}' and recipeId='${recipeId}';`
+    );
+    res.status(200).send({ msg: "favourite removed" });
+  } catch (err) {
+    res.status(400).send({ msg: "error, nothing removed" });
+  }
+});
+
 module.exports = router;
