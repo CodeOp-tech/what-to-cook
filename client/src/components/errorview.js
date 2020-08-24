@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Errorview extends React.Component {
+export default class Errorview extends Component {
   render() {
     return (
       <div>
