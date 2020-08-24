@@ -53,6 +53,7 @@ export default class CreateView extends Component {
 
   render() {
     const { username, password } = this.state.newUser;
+    const { userCreationError, userCreated } = this.state;
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -63,6 +64,7 @@ export default class CreateView extends Component {
             placeholder="username"
             onChange={this.handleInputChange}
             required
+            pattern="[A-Za-z0-9]{2,}"
           ></input>
           <input
             type="password"
@@ -74,6 +76,10 @@ export default class CreateView extends Component {
           ></input>
           <button type="sumbit">Submit</button>
         </form>
+        {userCreationError ? (
+          <strong>A user with these credentials already exists</strong>
+        ) : null}
+        {userCreated ? <strong>New user created!</strong> : null}
       </div>
     );
   }
