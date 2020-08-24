@@ -41,7 +41,7 @@ npm run migrate
 Get API key from Spoonacular API
 <https://spoonacular.com/food-api>
 
-.env file has to contain
+node .env file has to contain
 
 ```javascript
  DB_HOST=
@@ -49,5 +49,10 @@ Get API key from Spoonacular API
  DB_NAME=
  DB_PASS=
  SECRETWORD=
- RECIPE_API_KEY=
+```
+
+react .env file has to contain
+
+```javascript
+REACT_APP_RECIPE_API_KEY=
 ```
