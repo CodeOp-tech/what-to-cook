@@ -7,6 +7,7 @@ const salt = 2;
 const jwt = require("jsonwebtoken");
 const secretword = process.env.SECRETWORD;
 const isUserLoggedIn = require("./guards/isUserLoggedIn");
+const checkUserExists = require("./guards/checkUserExists");
 
 router.use(bodyParser.json());
 
@@ -15,7 +16,7 @@ router.get("/", function (req, res, next) {
 });
 
 //POST creates new user in DB, pwd is encrypted
-router.post("/users/create", async (req, res, next) => {
+router.post("/users/create", checkUserExists, async (req, res, next) => {
   const { username, password } = req.body;
   //encrypt password
   const hash = bcrypt.hashSync(password, salt);
@@ -23,7 +24,7 @@ router.post("/users/create", async (req, res, next) => {
     await db(
       `insert into users (username, password) values ("${username}", "${hash}");`
     );
-    res.status(200).send({ msg: "New user created" });
+    res.status(200).send({ msg: "ok" });
   } catch (err) {
     res.status(500).send({ msg: err });
   }
@@ -91,10 +92,23 @@ router.post("/favourites", isUserLoggedIn, async (req, res) => {
 //GET favourite recipes for logged in user
 router.get("/favourites", isUserLoggedIn, async (req, res) => {
   try {
-    result = await db(`select * from favourites where userId='${req.userId}'`);
-    res.status(200).send(result.data);
+    results = await db(`select * from favourites where userId='${req.userId}'`);
+    res.status(200).send(results.data);
   } catch (err) {
     res.status(400).send({ msg: err });
+  }
+});
+
+//DELETE favourite recipe
+router.delete("/favourites", isUserLoggedIn, async (req, res) => {
+  const { recipeId } = req.body;
+  try {
+    await db(
+      `delete from favourites where userId='${req.userId}' and recipeId='${recipeId}';`
+    );
+    res.status(200).send({ msg: "favourite removed" });
+  } catch (err) {
+    res.status(400).send({ msg: "error, nothing removed" });
   }
 });
 

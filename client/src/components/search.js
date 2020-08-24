@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import RecipeSearchItem from "./RecipeSearchItem";
 
-
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
 export default class Search extends Component {
@@ -73,4 +72,5 @@ export default class Search extends Component {
             </div>
         )
     }
+
 }
