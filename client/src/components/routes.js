@@ -4,7 +4,7 @@ import HomeView from "./HomeView";
 import ErrorView from "./ErrorView";
 import CreateView from "./CreateView";
 
-export default class Routes extends React.Component {
+export default class Routes extends Component {
   render() {
     return (
       <Switch>
