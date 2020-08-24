@@ -37,7 +37,6 @@ export default class NavBar extends Component {
               Bad URL!
             </NavLink>
           </li>
-<<<<<<< HEAD
           {userLoggedIn ? (
             <li>
               <NavLink to="/favourites" activeClassName="selected">
@@ -46,9 +45,6 @@ export default class NavBar extends Component {
             </li>
           ) : null}
           {userLoggedIn ? <li onClick={this.onLogoutPress}>Logout</li> : null}
-=======
-          <li onClick={this.onLogoutPress}>Logout</li>
->>>>>>> d926fef... logout button added with function
         </ul>
       </nav>
     );

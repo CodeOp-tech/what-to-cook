@@ -12,14 +12,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userLoggedIn: 0,
+      userId: 4,
+      userLoggedIn: 1,
     };
   }
   //logout button pressed
   userLoggedOut = () => {
     console.log("user logging out");
-
+    localStorage.removeItem("token");
     this.setState({
+      userId: null,
       userLoggedIn: 0,
     });
   };

@@ -20,6 +20,9 @@ export default class Routes extends Component {
         <Route path="/create" exact>
           <CreateView />
         </Route>
+        <Route path="/favourites" exact>
+          <FavouritesView />
+        </Route>
 
         <Route
           path="/recipe/:id"
