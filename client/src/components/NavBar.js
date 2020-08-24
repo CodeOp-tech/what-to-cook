@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 export default class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  onLogoutPress = (e) => {
+    e.preventDefault();
+    this.props.userLoggedOut();
+  };
+
   render() {
     return (
       <nav>
@@ -26,6 +36,7 @@ export default class NavBar extends Component {
               Bad URL!
             </NavLink>
           </li>
+          <li onClick={this.onLogoutPress}>Logout</li>
         </ul>
       </nav>
     );
