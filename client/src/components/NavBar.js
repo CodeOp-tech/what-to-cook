@@ -13,6 +13,7 @@ export default class NavBar extends Component {
   };
 
   render() {
+    const { userLoggedIn } = this.props;
     return (
       <nav>
         <ul>
@@ -36,7 +37,14 @@ export default class NavBar extends Component {
               Bad URL!
             </NavLink>
           </li>
-          <li onClick={this.onLogoutPress}>Logout</li>
+          {userLoggedIn ? (
+            <li>
+              <NavLink to="/favourites" activeClassName="selected">
+                Favourites
+              </NavLink>
+            </li>
+          ) : null}
+          {userLoggedIn ? <li onClick={this.onLogoutPress}>Logout</li> : null}
         </ul>
       </nav>
     );
