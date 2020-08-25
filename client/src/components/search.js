@@ -38,13 +38,11 @@ export default class Search extends Component {
       });
   };
 
-<<<<<<< HEAD
   handleInput = (e) => {
     this.setState({
       ingredients: e.target.value,
     });
   };
-=======
     render() {
         const { ingredients, recipes, loading } = this.state;
         return (
@@ -76,42 +74,5 @@ export default class Search extends Component {
             </div>
         )
     }
->>>>>>> redirect to recipe page when searching recipes by ingredients
 
-  render() {
-    const { ingredients, recipes, loading } = this.state;
-    return (
-      <div id="searchbar">
-        <form className="search-form">
-          <input
-            type="text"
-            value={ingredients}
-            onChange={this.handleInput}
-            className="form-control mb-1"
-            maxLength="50"
-            placeholder="Find a recipe by adding ingredients.."
-          ></input>
-
-          <button
-            className="btn btn-outline-secondary"
-            onClick={this.searchRecipes}
-          >
-            search
-          </button>
-          <i class="fas fa-search"></i>
-
-          <div>
-            {loading ? <span>Loading...</span> : null}
-            {recipes.map((recipe) => (
-              <RecipeSearchItem
-                key={recipe.id}
-                image={recipe.image}
-                title={recipe.title}
-              />
-            ))}
-          </div>
-        </form>
-      </div>
-    );
-  }
 }
