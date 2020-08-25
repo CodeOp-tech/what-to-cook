@@ -65,7 +65,7 @@ export default class Search extends Component {
                     <div>
                         {loading ? <span>Loading...</span> : null}
                         {recipes.map(recipe => (
-                            <RecipeSearchItem image={recipe.image} title={recipe.title}/>
+                            <RecipeSearchItem key={recipe.id} image={recipe.image} title={recipe.title}/>
                         ))}
                     </div>
                 </form>

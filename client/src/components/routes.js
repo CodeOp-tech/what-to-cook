@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import HomeView from "./HomeView";
 import ErrorView from "./ErrorView";
 import CreateView from "./CreateView";
+import Recipe from "./Recipe";
 
 export default class Routes extends Component {
   render() {
@@ -14,7 +15,9 @@ export default class Routes extends Component {
         <Route path="/create" exact>
           <CreateView />
         </Route>
-
+        <Route path="/recipe" exact>
+          <Recipe />
+        </Route>
         <ErrorView />
       </Switch>
     );
