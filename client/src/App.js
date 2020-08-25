@@ -1,6 +1,8 @@
 import React from "react";
+
 import Search from "./components/search";
 import { BrowserRouter, Switch } from "react-router-dom";
+
 import Navbar from "./components/NavBar";
 import Routes from "./components/Routes";
 
@@ -11,9 +13,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          This is app js
-          <Search />
           <Navbar />
+
+          <Search />
           <Routes />
           <Switch />
         </BrowserRouter>
