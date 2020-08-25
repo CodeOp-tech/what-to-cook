@@ -47,14 +47,13 @@ export default class Search extends Component {
   render() {
     const { ingredients, recipes, loading } = this.state;
     return (
-      <div className="col input-group-lg">
-        WHAT TO COOK..
+      <div className="col input-group-lg ">
         <form className="search-form">
           <input
             type="text"
             value={ingredients}
             onChange={this.handleInput}
-            className="form-control mb-1"
+            className="form-control m-3"
             maxLength="50"
             placeholder="Find a recipe by adding ingredients.."
           ></input>

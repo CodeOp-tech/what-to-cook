@@ -41,6 +41,7 @@ router.post("/users/login", async (req, res, next) => {
     //if user found
     if (results.data.length) {
       console.log("User found, comparing password...");
+      //console.log(process.env.SECRETWORD);
       // compare inputed password with hash in db
       const passCorrect = await bcrypt.compare(
         password,
@@ -52,7 +53,7 @@ router.post("/users/login", async (req, res, next) => {
         res.send({ msg: "User OK", userId: results.data[0].id, token });
       } else {
         //pass not correct
-        res.status(401).send({ msg: "Incorrect login details" });
+        res.status(401).send({ msg: "Incorrect password" });
       }
     } else {
       //user not found

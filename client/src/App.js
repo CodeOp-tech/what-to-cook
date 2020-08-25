@@ -13,9 +13,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          This is app js
-          <Search />
           <Navbar />
+
+          <Search />
           <Routes />
           <Switch />
         </BrowserRouter>
