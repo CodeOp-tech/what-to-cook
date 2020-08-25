@@ -68,8 +68,7 @@ export default class Search extends Component {
                         {loading ? <span>Loading...</span> : null}
                         {recipes.length > 0 
                             ?  <Redirect to={{ pathname:"/recipe", state: { recipes: recipes }}} /> 
-                            :  <Redirect to="/" /> } 
-                            {/* TODO if response empty what? Stay in current location? */}
+                            :  <Redirect to="/" /> } {/* TODO if response empty what? Stay in current location? */}
                     </div>
                 </form>
             </div>

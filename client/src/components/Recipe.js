@@ -23,7 +23,7 @@ export default class Recipe extends Component {
 
             <div>
                 {recipes.map(recipe => (
-                    <RecipeSearchItem key={recipe.id} image={recipe.image} title={recipe.title}/>
+                    <RecipeSearchItem key={recipe.id} id={recipe.id} image={recipe.image} title={recipe.title}/>
                 ))
             }
             </div>
