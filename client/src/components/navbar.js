@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class NavBar extends Component {
   render() {
     return (
-      <nav className="fixed-top">
+      <nav>
         <ul>
           <li>
             <NavLink to="/" exact activeClassName="selected">
@@ -13,7 +13,7 @@ export default class NavBar extends Component {
           </li>
           <li>
             <NavLink to="/create" activeClassName="selected">
-              Create account
+              Sign up
             </NavLink>
           </li>
           <li>
