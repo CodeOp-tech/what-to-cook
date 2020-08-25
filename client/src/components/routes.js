@@ -7,7 +7,7 @@ import CreateView from "./CreateView";
 import Recipe from "./Recipe";
 
 import LoginView from "./LoginView";
-
+import Detail from "./Detail";
 
 export default class Routes extends Component {
   render() {
@@ -19,8 +19,19 @@ export default class Routes extends Component {
         <Route path="/create" exact>
           <CreateView />
         </Route>
+        
+        <Route path="/recipe/:id" exact>
+          <Detail />
+        </Route>
 
-        <Route path="/recipe" render={(props) => <Recipe {...props}/>}/>
+        <Route 
+          path="/recipe"
+          render={(props) => <Recipe {...props}/>}
+          exact />
+        
+
+
+
         
         <Route path="/login" exact>
           <LoginView />
