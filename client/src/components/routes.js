@@ -20,9 +20,8 @@ export default class Routes extends Component {
           <CreateView />
         </Route>
 
-        <Route path="/recipe" exact>
-          <Recipe />
-
+        <Route path="/recipe" render={(props) => <Recipe {...props}/>}/>
+        
         <Route path="/login" exact>
           <LoginView />
 

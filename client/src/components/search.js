@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RecipeSearchItem from "./RecipeSearchItem";
+import { Redirect } from "react-router-dom";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -64,9 +64,9 @@ export default class Search extends Component {
                     
                     <div>
                         {loading ? <span>Loading...</span> : null}
-                        {recipes.map(recipe => (
-                            <RecipeSearchItem key={recipe.id} image={recipe.image} title={recipe.title}/>
-                        ))}
+                        {recipes.length > 0 
+                            ?  <Redirect to={{ pathname:"/recipe", state: { recipes: recipes }}} /> 
+                            :  <Redirect to="/" /> } //TODO if response empty what? Stay in current location?
                     </div>
                 </form>
             </div>
