@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class NavBar extends Component {
   render() {
     return (
-      <nav>
-        <p> this is navbarview</p>
+      <nav className="fixed-top">
         <ul>
           <li>
             <NavLink to="/" exact activeClassName="selected">
@@ -15,6 +14,11 @@ export default class NavBar extends Component {
           <li>
             <NavLink to="/create" activeClassName="selected">
               Create account
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" activeClassName="selected">
+              Log in
             </NavLink>
           </li>
           <li>
