@@ -24,17 +24,17 @@ export default class NavBar extends Component {
           </li>
           <li>
             <NavLink to="/create" activeClassName="selected">
-              Sign up
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/login" activeClassName="selected">
-              Log in
+              Create account
             </NavLink>
           </li>
           <li>
             <NavLink to="/abcd" activeClassName="selected">
               Bad URL!
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" activeClassName="selected">
+              Login
             </NavLink>
           </li>
           <li>
