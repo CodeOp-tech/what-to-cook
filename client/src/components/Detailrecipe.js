@@ -11,7 +11,8 @@ export default class Detailrecipe extends Component {
         return (
             <div>
                 <h3>{recipe.title}</h3>
-                <img alt={recipe.title} src={recipe.image} width="100" height="100" />
+                <img alt={recipe.title} src={recipe.image} width="100" height="100" />                    
+                <div>{recipe.instructions}</div>
             </div>
         )
     }

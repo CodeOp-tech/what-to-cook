@@ -1,7 +1,7 @@
 import React from "react";
 
 import Search from "./components/search";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/NavBar";
 import Routes from "./components/Routes";
@@ -30,21 +30,22 @@ class App extends React.Component {
     const { userLoggedIn } = this.state;
     return (
       <div className="App">
+        <BrowserRouter>
         <header>
           <nav>
             <h1 className="fixed-top"> WHAT TO COOK</h1>
-            <BrowserRouter>
+          
               <Navbar />
-
               <Search />
-
-              <Routes />
-              <Switch />
-            </BrowserRouter>
+             
+             
           </nav>
         </header>
+        
         <main className="container m-5 p-5">
-          This is the area for the main content
+          This is the area for the main content  
+          <Routes/>
+          <Switch/>
         </main>
         <footer>
           this the footer which doesnt exist in design but we probably should
@@ -54,6 +55,7 @@ class App extends React.Component {
             collaboration project for Codeop bootcamp, FS-09{" "}
           </bold>
         </footer>
+        </BrowserRouter>
       </div>
     );
   }
