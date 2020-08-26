@@ -16,7 +16,6 @@ export default class NavBar extends Component {
     const { userLoggedIn } = this.props;
     return (
       <nav>
-        <p> this is navbarview</p>
         <ul>
           <li>
             <NavLink to="/" exact activeClassName="selected">
@@ -33,6 +32,12 @@ export default class NavBar extends Component {
               Bad URL!
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/login" activeClassName="selected">
+              Login
+            </NavLink>
+          </li>
+
           {userLoggedIn ? (
             <li>
               <NavLink to="/favourites" activeClassName="selected">
