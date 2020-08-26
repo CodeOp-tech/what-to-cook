@@ -37,6 +37,12 @@ export default class NavBar extends Component {
               Bad URL!
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/login" activeClassName="selected">
+              Login
+            </NavLink>
+          </li>
+
           {userLoggedIn ? (
             <li>
               <NavLink to="/favourites" activeClassName="selected">
