@@ -63,6 +63,22 @@ nav a {
 nav a.selected {
   background-color: #ffa101;
 }
+#logout {
+  /* padding: 24px; */
+  color: #31525b;
+  text-shadow: 0px 4px 4px #fefae0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+#logout:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #searchbar {
   position: relative;
   width: 500pt;
