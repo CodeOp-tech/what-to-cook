@@ -30,7 +30,7 @@ class App extends React.Component {
     console.log("checking if user is logged in");
     let token = localStorage.getItem("token");
     console.log("token", token);
-    if (token != undefined || token != null) {
+    if (token) {
       try {
         await fetch("api/user", {
           method: "GET",
