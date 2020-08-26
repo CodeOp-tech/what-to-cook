@@ -47,8 +47,12 @@ export default class Search extends Component {
   render() {
     const { ingredients, recipes, loading } = this.state;
     return (
+<<<<<<< HEAD
       <div className="col input-group-lg">
         WHAT TO COOK..
+=======
+      <div id="searchbar">
+>>>>>>> testingmerge
         <form className="search-form">
           <input
             type="text"
@@ -65,6 +69,10 @@ export default class Search extends Component {
           >
             search
           </button>
+<<<<<<< HEAD
+=======
+          <i class="fas fa-search"></i>
+>>>>>>> testingmerge
 
           <div>
             {loading ? <span>Loading...</span> : null}

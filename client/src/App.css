@@ -1,8 +1,43 @@
 .App {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Dancing Script", cursive;
+  font-family: "Poppins", sans-serif;
+}
+
+h3,
+p,
+h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+h2,
+h4 {
+  font-family: "Dancing Script", cursive;
+}
+
+header {
+  background-color: #fae6b1;
+  height: 80px;
+}
+
+main {
+  background-color: #fefae0;
+}
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 54px;
+  color: #ffa101;
+  text-align: left;
+  text-shadow: 0px 4px 4px #fefae0;
+  margin-left: 36pt;
+  margin-top: 13pt;
 }
 nav {
-  border-bottom: 1px solid #ccc;
+  text-align: right;
 }
 
 nav ul {
@@ -15,11 +50,28 @@ nav li {
 }
 
 nav a {
-  padding: 5px;
+  padding: 24px;
+  color: #31525b;
+  text-shadow: 0px 4px 4px #fefae0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
 }
 
 nav a.selected {
-  background-color: #ccc;
+  background-color: #ffa101;
+}
+#searchbar {
+  position: relative;
+  width: 500pt;
+  border: none;
+  font-size: 17px;
+  padding-left: 300pt;
+}
+footer {
+  background: #b3dee5;
 }
 /*
 .App-logo {

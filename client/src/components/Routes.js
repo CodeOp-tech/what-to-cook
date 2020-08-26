@@ -5,6 +5,10 @@ import ErrorView from "./ErrorView";
 import CreateView from "./CreateView";
 import FavouritesView from "./FavouritesView";
 
+import Recipe from "./Recipe";
+
+import LoginView from "./LoginView";
+
 export default class Routes extends Component {
   render() {
     return (
@@ -19,6 +23,13 @@ export default class Routes extends Component {
           <FavouritesView />
         </Route>
 
+        <Route path="/recipe" exact>
+          <Recipe />
+        </Route>
+
+        <Route path="/login" exact>
+          <LoginView />
+        </Route>
         <ErrorView />
       </Switch>
     );
