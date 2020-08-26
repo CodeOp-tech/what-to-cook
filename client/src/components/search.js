@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import RecipeSearchItem from "./RecipeSearchItem";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -20,6 +19,7 @@ export default class Search extends Component {
     this.setState({
       ingredients: "",
       loading: true,
+      recipes: [],
     });
     e.preventDefault();
 
@@ -76,43 +76,6 @@ export default class Search extends Component {
               <Redirect to="/" />
             )}{" "}
             {/* TODO if response empty what? Stay in current location? */}
-          </div>
-        </form>
-      </div>
-    );
-  }
-
-  render() {
-    const { ingredients, recipes, loading } = this.state;
-    return (
-      <div id="searchbar">
-        <form className="search-form">
-          <input
-            type="text"
-            value={ingredients}
-            onChange={this.handleInput}
-            className="form-control mb-1"
-            maxLength="50"
-            placeholder="Find a recipe by adding ingredients.."
-          ></input>
-
-          <button
-            className="btn btn-outline-secondary"
-            onClick={this.searchRecipes}
-          >
-            search
-          </button>
-          <i class="fas fa-search"></i>
-
-          <div>
-            {loading ? <span>Loading...</span> : null}
-            {recipes.map((recipe) => (
-              <RecipeSearchItem
-                key={recipe.id}
-                image={recipe.image}
-                title={recipe.title}
-              />
-            ))}
           </div>
         </form>
       </div>

@@ -24,7 +24,6 @@ export default class LoginView extends Component {
   handleSubmit = (e) => {
     const { existingUser } = this.state;
     e.preventDefault();
-
     this.storeUser(existingUser);
   };
 
@@ -53,19 +52,11 @@ export default class LoginView extends Component {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      this.props.isUserLoggedIn();
     }
   };
-  /*componentDidMount = async () => {
-    try {
-      const res = await fetch("/users/login");
-      const username = await res.json();
-      const password = await res.json();
-      this.setState({ errorMessage: res.data });
-    } catch (error) {
-      console.log({ msg: error });
-    }
-  };
-*/
+
   render() {
     const { username, password } = this.state.existingUser;
     const { userLoginError, userLoggedIn } = this.state;

@@ -36,8 +36,14 @@ export default class Routes extends Component {
 
         <Route path="/recipe" render={(props) => <Recipe {...props} />} exact />
 
-        <Route path="/login" exact>
-          <LoginView />
+        <Route
+          path="/login"
+          render={(props) => (
+            <LoginView isUserLoggedIn={() => this.isUserLoggedIn} />
+          )}
+          exact
+        >
+          {/* <LoginView /> */}
         </Route>
         <ErrorView />
       </Switch>

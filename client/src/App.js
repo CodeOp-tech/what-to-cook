@@ -12,8 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: 4,
-      userLoggedIn: 1,
+      userLoggedIn: null,
     };
   }
   //logout button pressed
@@ -21,11 +20,44 @@ class App extends React.Component {
     console.log("user logging out");
     localStorage.removeItem("token");
     this.setState({
-      userId: null,
       userLoggedIn: 0,
     });
+    //call the check user logged in function to set state to 0
   };
-  //comment
+
+  isUserLoggedIn = async () => {
+    //check if user logged in
+    //set flag user logged in
+    let token = localStorage.getItem("token");
+    if (token !== undefined) {
+      try {
+        const result = await fetch("api/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": token,
+          },
+        });
+        // let json = await result.json();
+        //user is already logged in - changing flag in state
+        this.setState({
+          userLoggedIn: 1,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      this.setState({
+        userLoggedIn: 0,
+      });
+    }
+  };
+
+  componentDidMount = () => {
+    //call check if user logged in
+    this.isUserLoggedIn();
+  };
+
   render() {
     const { userLoggedIn } = this.state;
     return (
@@ -34,7 +66,11 @@ class App extends React.Component {
           <nav>
             <h1 className="fixed-top"> WHAT TO COOK</h1>
             <BrowserRouter>
-              <Navbar />
+              <Navbar
+                userLoggedIn={userLoggedIn}
+                userLoggedOut={this.userLoggedOut}
+                userLoggedIn={this.isUserLoggedIn}
+              />
 
               <Search />
 
