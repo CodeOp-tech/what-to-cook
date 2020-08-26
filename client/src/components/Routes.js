@@ -4,13 +4,15 @@ import HomeView from "./HomeView";
 import ErrorView from "./ErrorView";
 import CreateView from "./CreateView";
 import FavouritesView from "./FavouritesView";
-
 import Recipe from "./Recipe";
-
 import LoginView from "./LoginView";
 import Detail from "./Detail";
 
 export default class Routes extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <Switch>
@@ -36,14 +38,8 @@ export default class Routes extends Component {
 
         <Route path="/recipe" render={(props) => <Recipe {...props} />} exact />
 
-        <Route
-          path="/login"
-          render={(props) => (
-            <LoginView isUserLoggedIn={() => this.isUserLoggedIn} />
-          )}
-          exact
-        >
-          {/* <LoginView /> */}
+        <Route path="/login">
+          <LoginView />
         </Route>
         <ErrorView />
       </Switch>

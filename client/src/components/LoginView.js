@@ -47,13 +47,13 @@ export default class LoginView extends Component {
         let token = json.token;
         console.log(token);
         localStorage.setItem("token", token);
+        // once user is logged in, refresh browser
+        window.location.reload(false);
       } else {
         this.setState({ userLoginError: 1, userLoggedIn: 0 });
       }
     } catch (err) {
       console.log(err);
-    } finally {
-      this.props.isUserLoggedIn();
     }
   };
 
