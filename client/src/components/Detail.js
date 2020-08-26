@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Patata from "./Detailrecipe";
+import Detailrecipe from "./Detailrecipe";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
