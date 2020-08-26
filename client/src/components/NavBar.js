@@ -37,11 +37,6 @@ export default class NavBar extends Component {
               Login
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/login" activeClassName="selected">
-              Login
-            </NavLink>
-          </li>
 
           {userLoggedIn ? (
             <li>
