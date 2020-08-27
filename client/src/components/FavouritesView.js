@@ -22,6 +22,8 @@ export default class FavouritesView extends Component {
       this.setState({
         favouriteList: json,
       });
+
+      console.log(this.state.favouriteList);
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +38,12 @@ export default class FavouritesView extends Component {
     return (
       <div>
         {favouriteList.map((favourite) => (
-          <RecipeSearchItem key={favourite.id} id={favourite.recipeId} />
+          <RecipeSearchItem
+            key={favourite.id}
+            id={favourite.recipeId}
+            image={favourite.image}
+            title={favourite.title}
+          />
         ))}
       </div>
     );

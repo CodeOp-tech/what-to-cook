@@ -79,10 +79,10 @@ router.get("/user", isUserLoggedIn, async (req, res) => {
 
 //POST favourite recipe
 router.post("/favourites", isUserLoggedIn, async (req, res) => {
-  const { recipeId } = req.body;
+  const { recipeId, image, title } = req.body;
   try {
     await db(
-      `insert into favourites (userId, recipeId) values ('${req.userId}', '${recipeId}')`
+      `insert into favourites (userId, recipeId, image, title) values ('${req.userId}', '${recipeId}', '${image}', '${title}');`
     );
     res.status(200).send({ msg: "Favourite recipe inserted!" });
   } catch (err) {

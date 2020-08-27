@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { decodeBase64 } from "bcryptjs";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -12,7 +11,11 @@ export default class Detail extends Component {
   //add recipe to favourites
   addToFavourites = async () => {
     console.log("adding recipe to favourites");
-    const recipeId = { recipeId: this.props.match.params.id };
+    const bodyToSend = {
+      recipeId: this.props.match.params.id,
+      image: this.state.recipe.image,
+      title: this.state.recipe.title,
+    };
     try {
       await fetch("/api/favourites", {
         method: "POST",
@@ -20,7 +23,7 @@ export default class Detail extends Component {
           "Content-Type": "application/json",
           "x-access-token": localStorage.getItem("token"),
         },
-        body: JSON.stringify(recipeId),
+        body: JSON.stringify(bodyToSend),
       });
     } catch (err) {
       console.log(err);
@@ -97,6 +100,7 @@ export default class Detail extends Component {
       });
     //check if the recipe shown is already a favourite
     this.isInFavourites();
+    console.log(this.state.recipe);
   }
 
   render() {
