@@ -1,7 +1,4 @@
 .App {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
   font-family: "Dancing Script", cursive;
   font-family: "Poppins", sans-serif;
 }
@@ -22,8 +19,9 @@ header {
   height: 80px;
 }
 
-main {
+#mainbg {
   background-color: #fefae0;
+  min-height: 600pt;
 }
 h1 {
   font-family: "Poppins", sans-serif;
@@ -31,13 +29,8 @@ h1 {
   font-size: 36px;
   line-height: 54px;
   color: #ffa101;
-  text-align: left;
+
   text-shadow: 0px 4px 4px #fefae0;
-  margin-left: 36pt;
-  margin-top: 13pt;
-}
-nav {
-  text-align: right;
 }
 
 nav ul {
@@ -50,7 +43,6 @@ nav li {
 }
 
 nav a {
-  padding: 24px;
   color: #31525b;
   text-shadow: 0px 4px 4px #fefae0;
   font-family: Poppins;
@@ -63,12 +55,46 @@ nav a {
 nav a.selected {
   background-color: #ffa101;
 }
-#searchbar {
+
+input {
+  width: 320px;
+
+  background-color: #31525b;
+  color: #fefae0;
+  font-size: 14px;
+  line-height: 24px;
+
+  border-radius: 4px;
+}
+input::-webkit-input-placeholder {
+  color: #fefae0;
+}
+/*
+button {
   position: relative;
-  width: 500pt;
-  border: none;
-  font-size: 17px;
-  padding-left: 300pt;
+}
+*/
+#banneronthetop {
+  width: 100%;
+  height: 160px;
+  background-color: #b3dee5;
+}
+#textinbanner {
+  width: 512px;
+  height: 102px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+  color: #31525b;
+}
+.card {
+  background: #fae6b1;
+  width: 240px;
+  height: 328px;
+  box-shadow: 0px 4px 4px #e0e0e0;
+  border-radius: 8px;
 }
 footer {
   background: #b3dee5;
