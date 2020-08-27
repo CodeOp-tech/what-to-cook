@@ -14,7 +14,7 @@ export default class Detail extends Component {
     console.log("adding recipe to favourites");
     const recipeId = { recipeId: this.props.match.params.id };
     try {
-      await fetch("/favourites/", {
+      await fetch("/api/favourites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,9 +32,21 @@ export default class Detail extends Component {
   };
 
   //remove recipe from favourites
-  removeFromFavourites = () => {
+  removeFromFavourites = async () => {
     //fetch request to remove user-recipe link
-
+    const recipeId = { recipeId: this.props.match.params.id };
+    try {
+      await fetch("/api/favourites", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify(recipeId),
+      });
+    } catch (err) {
+      console.log(err);
+    }
     console.log("removing recipe from favourites");
     this.setState({
       isFavourite: 0,
