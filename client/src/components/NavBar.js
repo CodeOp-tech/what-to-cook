@@ -26,21 +26,21 @@ export default class NavBar extends Component {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/create" activeClassName="selected">
-              Create account
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/abcd" activeClassName="selected">
-              Bad URL!
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/login" activeClassName="selected">
-              Login
-            </NavLink>
-          </li>
+          {userLoggedIn ? null : (
+            <li>
+              <NavLink to="/create" activeClassName="selected">
+                Create account
+              </NavLink>
+            </li>
+          )}
+
+          {userLoggedIn ? null : (
+            <li>
+              <NavLink to="/login" activeClassName="selected">
+                Login
+              </NavLink>
+            </li>
+          )}
 
           {userLoggedIn ? (
             <li>
@@ -49,7 +49,11 @@ export default class NavBar extends Component {
               </NavLink>
             </li>
           ) : null}
-          {userLoggedIn ? <li onClick={this.onLogoutPress}>Logout</li> : null}
+          {userLoggedIn ? (
+            <li onClick={this.onLogoutPress} id="logout">
+              Logout
+            </li>
+          ) : null}
         </ul>
       </nav>
     );

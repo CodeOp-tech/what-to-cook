@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import RecipeSearchItem from "./RecipeSearchItem";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -20,6 +19,7 @@ export default class Search extends Component {
     this.setState({
       ingredients: "",
       loading: true,
+      recipes: [],
     });
     e.preventDefault();
 

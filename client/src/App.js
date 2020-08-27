@@ -9,35 +9,83 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: 4,
+
+      userLoggedIn: 0,
+
     };
   }
+
   //logout button pressed
   userLoggedOut = () => {
     console.log("user logging out");
     localStorage.removeItem("token");
     this.setState({
-      userId: null,
       userLoggedIn: 0,
     });
+    //call the check user logged in function to set state to 0
   };
 
-  //comment
+
+  isUserLoggedIn = async () => {
+    //check if user logged in
+    //set flag user logged in
+    console.log("checking if user is logged in");
+    let token = localStorage.getItem("token");
+    // console.log("token", token);
+    if (token) {
+      try {
+        await fetch("api/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": token,
+          },
+        });
+        //user is already logged in - changing flag in state
+        console.log(
+          "user logged in, this should change userLoggedIn state to 1"
+        );
+        this.setState({
+          userLoggedIn: 1,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      console.log("User not logged in");
+      this.setState({
+        userLoggedIn: 0,
+      });
+    }
+  };
+
+  componentDidMount = () => {
+    //call check if user logged in
+    this.isUserLoggedIn();
+  };
+
+
   render() {
     const { userLoggedIn } = this.state;
     return (
       <div className="App">
+
         <div className="container-fluid">
           <BrowserRouter>
             <div>
               <header className="row">
                 <h1 className="col"> WHAT TO COOK</h1>
                 <div className="col">
-                  <Navbar />
+                 <Navbar
+                userLoggedIn={userLoggedIn}
+                userLoggedOut={this.userLoggedOut}
+                isuserLoggedIn={this.isUserLoggedIn}
+              />
                 </div>
               </header>
             </div>
             <main className="row" id="mainbg">
+
               <Routes />
               <Switch />
               This is the area for the main content

@@ -56,6 +56,7 @@ nav a.selected {
   background-color: #ffa101;
 }
 
+
 input {
   width: 320px;
 
@@ -71,6 +72,25 @@ input::-webkit-input-placeholder {
 }
 /*
 button {
+
+#logout {
+  /* padding: 24px; */
+  color: #31525b;
+  text-shadow: 0px 4px 4px #fefae0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+#logout:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#searchbar {
+
   position: relative;
 }
 */
