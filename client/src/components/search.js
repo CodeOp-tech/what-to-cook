@@ -47,25 +47,25 @@ export default class Search extends Component {
   render() {
     const { ingredients, recipes, loading } = this.state;
     return (
-      <div className="col input-group-lg">
-        WHAT TO COOK..
-        <form className="search-form">
-          <input
-            type="text"
-            value={ingredients}
-            onChange={this.handleInput}
-            className="form-control mb-1"
-            maxLength="50"
-            placeholder="Find a recipe by adding ingredients.."
-          ></input>
+      <div>
+        <form>
+          <div>
+            <input
+              type="text"
+              value={ingredients}
+              onChange={this.handleInput}
+              //className="form-control mb-1"
+              maxLength="50"
+              placeholder="Find a recipe by adding ingredients.."
+            ></input>
 
-          <button
-            className="btn btn-outline-secondary"
-            onClick={this.searchRecipes}
-          >
-            search
-          </button>
-
+            <button
+              className="btn btn-outline-secondary"
+              onClick={this.searchRecipes}
+            >
+              search
+            </button>
+          </div>
           <div>
             {loading ? <span>Loading...</span> : null}
             {recipes.length > 0 ? (

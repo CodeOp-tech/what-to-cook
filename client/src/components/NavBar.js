@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import Search from "./search";
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -17,6 +18,9 @@ export default class NavBar extends Component {
     return (
       <nav>
         <ul>
+          <li>
+            <Search />
+          </li>
           <li>
             <NavLink to="/" exact activeClassName="selected">
               Home
