@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom';
+import Recipe from './Recipe';
 
 export default class RecipeSearchItem extends Component {
     constructor(props){

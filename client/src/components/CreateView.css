@@ -1,0 +1,10 @@
+.CreateView {
+    text-align: center;
+}
+
+input{
+    background: #FAE6B1;
+    box-shadow: 0px 4px 4px #FAE6B1;
+    border-radius: 8px;
+    Font-Family: poppins;
+}
