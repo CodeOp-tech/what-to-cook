@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
-import Detailrecipe from "./Detailrecipe";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
 export default class Detail extends Component {
-    constructor(props) {
-        super(props)
-        this.state={
-            id: props.match.params.id
-        }
+    state = {
+        recipe: null
     }
-
+    
     componentDidMount(){
-        const { id } = this.state
+        const { id } = this.props.match.params
         fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${RECIPE_API_KEY}`, {
             method: "GET",
             headers: {
@@ -32,7 +28,13 @@ export default class Detail extends Component {
             <div>
                 {!recipe 
                     ? <span>loading...</span>
-                    : <Detailrecipe recipe={recipe} />
+                    : (
+                        <div>
+                            <h3>{recipe.title}</h3>
+                            <img alt={recipe.title} src={recipe.image} width="100" height="100" />                    
+                            <div>{recipe.instructions}</div>
+                        </div>
+                    )
                 }
             </div>
         )

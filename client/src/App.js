@@ -37,13 +37,10 @@ class App extends React.Component {
           
               <Navbar />
               <Search />
-             
-             
           </nav>
         </header>
         
         <main className="container m-5 p-5">
-          This is the area for the main content  
           <Routes/>
           <Switch/>
         </main>

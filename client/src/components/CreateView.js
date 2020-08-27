@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./CreateView.css";
 
 export default class CreateView extends Component {
   constructor(props) {
@@ -55,13 +56,14 @@ export default class CreateView extends Component {
     const { username, password } = this.state.newUser;
     const { userCreationError, userCreated } = this.state;
     return (
-      <div>
+      <div className="CreateView">
+        <div>Sign Up</div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="username"
             value={username}
-            placeholder="username"
+            placeholder="Enter your name..."
             onChange={this.handleInputChange}
             required
             pattern="[A-Za-z0-9]{2,}"
@@ -70,11 +72,11 @@ export default class CreateView extends Component {
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="Enter your email addres..."
             onChange={this.handleInputChange}
             required
           ></input>
-          <button type="sumbit">Submit</button>
+          <button type="sumbit">Register</button>
         </form>
         {userCreationError ? (
           <strong>A user with these credentials already exists</strong>

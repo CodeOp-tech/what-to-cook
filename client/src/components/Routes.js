@@ -23,7 +23,8 @@ export default class Routes extends Component {
         <Route path="/favourites" exact>
           <FavouritesView />
         </Route>
-
+        
+        <Route path="/recipe" render={(props) => <Recipe {...props} />} exact />
         <Route
           path="/recipe/:id"
           render={(props) => <Detail {...props} />}
@@ -34,7 +35,7 @@ export default class Routes extends Component {
           <FavouritesView />
         </Route>
 
-        <Route path="/recipe" render={(props) => <Recipe {...props} />} exact />
+        
 
         <Route path="/login" exact>
           <LoginView />
