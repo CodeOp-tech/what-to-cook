@@ -24,7 +24,6 @@ export default class LoginView extends Component {
   handleSubmit = (e) => {
     const { existingUser } = this.state;
     e.preventDefault();
-
     this.storeUser(existingUser);
   };
 
@@ -48,6 +47,8 @@ export default class LoginView extends Component {
         let token = json.token;
         console.log(token);
         localStorage.setItem("token", token);
+        // once user is logged in, refresh browser
+        window.location.reload(false);
       } else {
         this.setState({ userLoginError: 1, userLoggedIn: 0 });
       }
@@ -55,17 +56,7 @@ export default class LoginView extends Component {
       console.log(err);
     }
   };
-  /*componentDidMount = async () => {
-    try {
-      const res = await fetch("/users/login");
-      const username = await res.json();
-      const password = await res.json();
-      this.setState({ errorMessage: res.data });
-    } catch (error) {
-      console.log({ msg: error });
-    }
-  };
-*/
+
   render() {
     const { username, password } = this.state.existingUser;
     const { userLoginError, userLoggedIn } = this.state;
