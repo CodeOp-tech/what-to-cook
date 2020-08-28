@@ -1,0 +1,16 @@
+.card {
+  background: #fae6b1;
+
+  height: 328px;
+  box-shadow: 0px 4px 4px #e0e0e0;
+  border-radius: 8px;
+  margin-top: 10pt;
+}
+
+.card-img-top {
+  height: 156px;
+  border-radius: 8px 8px 0px 0px;
+}
+.card-text {
+  font-size: 14pt;
+}
