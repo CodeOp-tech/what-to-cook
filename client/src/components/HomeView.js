@@ -1,42 +1,28 @@
 import React, { Component } from "react";
+import CardsDisplay from "./CardsDisplay";
 
 export default class HomeView extends Component {
   render() {
     return (
-      <div>
-        <div id="banneronthetop">
-          this is homeview
-          <div className="container" id="textinbanner">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col">
+            <section className="bgimage">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h3>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
-        <div class="card-deck">
-          <div class="card">
-            <img class="card-img-top" src="images/cake.jpg" alt="cake" />
-
-            <div class="card-body text-center">
-              <h4>Recipe</h4>
-              <p class="card-text">Some text inside the first card</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body text-center">
-              <p class="card-text">Some text inside the second card</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body text-center">
-              <p class="card-text">Some text inside the third card</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body text-center">
-              <p class="card-text">Some text inside the fourth card</p>
-            </div>
-          </div>
-        </div>
+        <CardsDisplay />
       </div>
     );
   }

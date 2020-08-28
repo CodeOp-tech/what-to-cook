@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "./components/search";
+import { NavLink } from "react-router-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/NavBar";
@@ -10,9 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       userLoggedIn: 0,
-
     };
   }
 
@@ -25,7 +24,6 @@ class App extends React.Component {
     });
     //call the check user logged in function to set state to 0
   };
-
 
   isUserLoggedIn = async () => {
     //check if user logged in
@@ -65,31 +63,33 @@ class App extends React.Component {
     this.isUserLoggedIn();
   };
 
-
   render() {
     const { userLoggedIn } = this.state;
     return (
       <div className="App">
-
         <div className="container-fluid">
           <BrowserRouter>
             <div>
-              <header className="row">
-                <h1 className="col"> WHAT TO COOK</h1>
-                <div className="col">
-                 <Navbar
-                userLoggedIn={userLoggedIn}
-                userLoggedOut={this.userLoggedOut}
-                isuserLoggedIn={this.isUserLoggedIn}
-              />
+              <header className="row ">
+                <NavLink to="/" exact className="navbar-brand">
+                  <h1 className="col text-left"> WHAT TO COOK</h1>
+                </NavLink>
+                <div className="col text-center mt-4">
+                  <Search />
+                </div>
+                <div className="col text-right mt-4">
+                  <Navbar
+                    userLoggedIn={userLoggedIn}
+                    userLoggedOut={this.userLoggedOut}
+                    isuserLoggedIn={this.isUserLoggedIn}
+                  />
                 </div>
               </header>
             </div>
             <main className="row" id="mainbg">
-
               <Routes />
               <Switch />
-             
+
             </main>
             <footer className="row">
               this the footer which doesnt exist in design but we probably

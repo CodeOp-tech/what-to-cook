@@ -2,7 +2,9 @@
   font-family: "Dancing Script", cursive;
   font-family: "Poppins", sans-serif;
 }
-
+body {
+  height: 100%;
+}
 h3,
 p,
 h6 {
@@ -12,48 +14,6 @@ h6 {
 h2,
 h4 {
   font-family: "Dancing Script", cursive;
-}
-
-header {
-  background-color: #fae6b1;
-  height: 80px;
-}
-
-#mainbg {
-  background-color: #fefae0;
-  min-height: 600pt;
-}
-h1 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 54px;
-  color: #ffa101;
-
-  text-shadow: 0px 4px 4px #fefae0;
-}
-
-nav ul {
-  list-style-type: none;
-}
-
-nav li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-nav a {
-  color: #31525b;
-  text-shadow: 0px 4px 4px #fefae0;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 32px;
-}
-
-nav a.selected {
-  background-color: #ffa101;
 }
 
 input {
@@ -70,84 +30,20 @@ input::-webkit-input-placeholder {
   color: #fefae0;
 }
 
-
-#logout {
-  /* padding: 24px; */
-  color: #31525b;
-  text-shadow: 0px 4px 4px #fefae0;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 32px;
+}
+#mainbg {
+  background-color: #fefae0;
+  height: 570pt;
 }
 
-#logout:hover {
-  text-decoration: underline;
-  cursor: pointer;
+
+.bgimage h3 {
+  color: #fefae0;
+  text-shadow: 2px 2px #31525b;
+  margin-top: 20pt;
 }
 
-#searchbar {
-  position: relative;
-}
-*/ #banneronthetop {
-  width: 100%;
-  height: 160px;
-  background-color: #b3dee5;
-}
-#textinbanner {
-  width: 512px;
-  height: 102px;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 32px;
-  color: #31525b;
-}
-.card {
-  background: #fae6b1;
-  width: 240px;
-  height: 328px;
-  box-shadow: 0px 4px 4px #e0e0e0;
-  border-radius: 8px;
-}
 footer {
   background: #b3dee5;
 }
 
-/*
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

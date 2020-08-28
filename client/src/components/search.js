@@ -54,16 +54,17 @@ export default class Search extends Component {
               type="text"
               value={ingredients}
               onChange={this.handleInput}
-              //className="form-control mb-1"
               maxLength="50"
               placeholder="Find a recipe by adding ingredients.."
             ></input>
 
             <button
               className="btn btn-outline-secondary"
+              id="searchbutton"
               onClick={this.searchRecipes}
             >
               search
+              <i className="fas fa-search"></i>
             </button>
           </div>
           <div>
