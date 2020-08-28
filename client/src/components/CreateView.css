@@ -1,10 +1,22 @@
-.CreateView {
-    text-align: center;
+
+.inputs{
+    background: #FAE6B1;
 }
 
-input{
-    background: #FAE6B1;
-    box-shadow: 0px 4px 4px #FAE6B1;
-    border-radius: 8px;
-    Font-Family: poppins;
+.img {
+   width: 100px;
+
+  }
+
+.div {
+    font-family: "Poppins";
+    font-style: "ExtraBold";
+    color: #31525b;
 }
+
+button {
+    color: #31525B;
+    border-radius: 4px;
+}
+  
+

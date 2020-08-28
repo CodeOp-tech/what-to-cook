@@ -89,7 +89,7 @@ class App extends React.Component {
 
               <Routes />
               <Switch />
-              This is the area for the main content
+             
             </main>
             <footer className="row">
               this the footer which doesnt exist in design but we probably
