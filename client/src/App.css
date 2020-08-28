@@ -56,7 +56,6 @@ nav a.selected {
   background-color: #ffa101;
 }
 
-
 input {
   width: 320px;
 
@@ -89,11 +88,9 @@ input::-webkit-input-placeholder {
 }
 
 #searchbar {
-
   position: relative;
 }
-*/
-#banneronthetop {
+*/ #banneronthetop {
   width: 100%;
   height: 160px;
   background-color: #b3dee5;
@@ -118,7 +115,6 @@ input::-webkit-input-placeholder {
 footer {
   background: #b3dee5;
 }
-
 
 /*
 .App-logo {
