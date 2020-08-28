@@ -79,10 +79,10 @@ router.get("/user", isUserLoggedIn, async (req, res) => {
 
 //POST favourite recipe
 router.post("/favourites", isUserLoggedIn, async (req, res) => {
-  const { recipeId } = req.body;
+  const { recipeId, image, title } = req.body;
   try {
     await db(
-      `insert into favourites (userId, recipeId) values ('${req.userId}', '${recipeId}')`
+      `insert into favourites (userId, recipeId, image, title) values ('${req.userId}', '${recipeId}', '${image}', '${title}');`
     );
     res.status(200).send({ msg: "Favourite recipe inserted!" });
   } catch (err) {
@@ -90,11 +90,27 @@ router.post("/favourites", isUserLoggedIn, async (req, res) => {
   }
 });
 
-//GET favourite recipes for logged in user
-router.get("/favourites", isUserLoggedIn, async (req, res) => {
+// GET favourite recipes for logged in user
+router.get("/favourites/all", isUserLoggedIn, async (req, res) => {
   try {
     results = await db(`select * from favourites where userId='${req.userId}'`);
     res.status(200).send(results.data);
+  } catch (err) {
+    res.status(400).send({ msg: err });
+  }
+});
+
+//check if recipe is favourite for logged in user
+router.get("/favourites/:recipeId", isUserLoggedIn, async (req, res) => {
+  try {
+    results = await db(
+      `select * from favourites where userId='${req.userId}' and recipeId ='${req.params.recipeId};'`
+    );
+    if (results.data.length) {
+      res.status(200).send(results.data);
+    } else {
+      res.status(200).send({ msg: "Not a favourite" });
+    }
   } catch (err) {
     res.status(400).send({ msg: err });
   }

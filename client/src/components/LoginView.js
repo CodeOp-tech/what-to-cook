@@ -61,28 +61,40 @@ export default class LoginView extends Component {
     const { username, password } = this.state.existingUser;
     const { userLoginError, userLoggedIn } = this.state;
     return (
+      // <React.Fragment>
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            placeholder="username"
-            onChange={this.handleInputChange}
-            required
-            pattern="[A-Za-z0-9]{2,}"
-          ></input>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="password"
-            onChange={this.handleInputChange}
-            required
-          ></input>
-          <button type="sumbit">Submit</button>
-        </form>
+         <div className="col-sm-6">
+        <img src="/images/pizza.jpg" alt="avocado" width="" className="" />
+        </div>
+      <div>
+        
+       <div className="col-sm-6">
+          <h1>Log In</h1>
+          <form onSubmit={this.handleSubmit} className="inputs">
+           <input
+              type="text"
+              name="username"
+              value={username}
+              placeholder="username"
+              onChange={this.handleInputChange}
+              required
+              pattern="[A-Za-z0-9]{2,}"
+            ></input>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="password"
+              onChange={this.handleInputChange}
+              required
+            ></input>
+            <button type="sumbit">Submit</button>
+          </form>
+        </div>
       </div>
+      </div>
+    
+      // </React.Fragment>
     );
   }
 }

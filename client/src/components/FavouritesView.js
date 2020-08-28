@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import RecipeSearchItem from "./RecipeSearchItem";
 
 export default class FavouritesView extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      favouriteList: [],
+    };
   }
 
   getUserFavourites = async () => {
     try {
-      const results = await fetch("api/favourites", {
+      const results = await fetch("api/favourites/all", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -19,7 +22,11 @@ export default class FavouritesView extends Component {
       this.setState({
         favouriteList: json,
       });
-    } catch (err) {}
+
+      console.log(this.state.favouriteList);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   componentDidMount() {
@@ -27,6 +34,18 @@ export default class FavouritesView extends Component {
   }
 
   render() {
-    return <div></div>;
+    const { favouriteList } = this.state;
+    return (
+      <div>
+        {favouriteList.map((favourite) => (
+          <RecipeSearchItem
+            key={favourite.id}
+            id={favourite.recipeId}
+            image={favourite.image}
+            title={favourite.title}
+          />
+        ))}
+      </div>
+    );
   }
 }
