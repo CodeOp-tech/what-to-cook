@@ -56,7 +56,6 @@ nav a.selected {
   background-color: #ffa101;
 }
 
-
 input {
   width: 320px;
 
@@ -70,8 +69,6 @@ input {
 input::-webkit-input-placeholder {
   color: #fefae0;
 }
-/*
-button {
 
 #logout {
   /* padding: 24px; */
@@ -90,11 +87,9 @@ button {
 }
 
 #searchbar {
-
   position: relative;
 }
-*/
-#banneronthetop {
+*/ #banneronthetop {
   width: 100%;
   height: 160px;
   background-color: #b3dee5;
@@ -119,7 +114,6 @@ button {
 footer {
   background: #b3dee5;
 }
-
 
 /*
 .App-logo {
