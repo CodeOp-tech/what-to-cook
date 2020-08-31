@@ -3,7 +3,8 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  height: 100%;
+  height: 100vh;
+  background-color: #fefae0;
 }
 h3,
 p,
@@ -57,6 +58,13 @@ input::-webkit-input-placeholder {
   margin-top: 20pt;
 }
 
-footer {
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 0.8em;
   background: #b3dee5;
 }
