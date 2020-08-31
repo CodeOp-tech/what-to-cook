@@ -24,11 +24,16 @@ class CardsDisplay extends React.Component {
                 <Card />
                 <Card />
                 <Card />
+                <Card />
+                <Card />
+                <Card />
               </div>
             </div>
 
             <div className="carousel-item">
               <div className="row">
+                <Card />
+                <Card />
                 <Card />
                 <Card />
                 <Card />
