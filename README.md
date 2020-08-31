@@ -6,20 +6,12 @@ An app that let's you search for recipes by inputting a number of ingredients. Y
 
 1. Fork or download the app and open the folder in a CLI
 2. Install dependencies using `npm install`
-<<<<<<< HEAD
 3. Set up the nodeJS .env file with details on DB connection and a secret for encription (see below)
 4. To populate the DB run `npm run migrate`
 5. Start the backend server with `npm run start`. The app is served at <http://localhost:5000/>
 6. cd into the client folder and install dependencies with `npm install`
 7. add api key to react .env file. Get API key from <https://spoonacular.com/food-api> (see below)
 8. Start the frontend with `npm run start`. The app is served at <http://localhost:3000>
-=======
-3. Set up the nodeJS .env file with details on DB connection
-4. To populate the DB run `npm run migrate`
-5. Start the backend server with `npm run start`. The app is served at <http://localhost:5000/>
-6. cd into the client folder and install dependencies with `npm install`
-7. Start the frontend with `npm run start`. The app is served at <http://localhost:3000>
->>>>>>> 69a6f2a07229fc12ce46d1ac6b222ffa6e68d989
 
 ## How to use the app
 
@@ -42,7 +34,6 @@ An app that let's you search for recipes by inputting a number of ingredients. Y
 - access favourite recipes in the "Favourites" section
 - click on recipe to view details
 - click on ★ to remove recipe from favourites
-<<<<<<< HEAD
 - click on the "Logout" button to log out
 
 ## User stories
@@ -69,8 +60,6 @@ An app that let's you search for recipes by inputting a number of ingredients. Y
 - Adding to Favourites
 
 - Removing from Favourites
-=======
->>>>>>> 69a6f2a07229fc12ce46d1ac6b222ffa6e68d989
 
 ## DB schema
 
