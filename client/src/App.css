@@ -26,8 +26,15 @@ input {
 
   border-radius: 4px;
 }
+
+/*default placeholder color*/
 input::-webkit-input-placeholder {
   color: #fefae0;
+}
+
+/* placeholder text color for login and create */
+.custom-input-placeholder::placeholder {
+  color: #849aa0;
 }
 
 #mainbg {
@@ -43,7 +50,6 @@ input::-webkit-input-placeholder {
   background-size: cover;
   background-attachment: fixed;
 }
-
 
 .bgimage h3 {
   color: #fefae0;
