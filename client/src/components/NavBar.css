@@ -25,6 +25,10 @@ nav a.selected {
   background-color: #ffa101;
 }
 
+nav a:hover {
+  color: #31525b;
+}
+
 h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
