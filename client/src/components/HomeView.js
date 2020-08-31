@@ -4,7 +4,7 @@ import CardsDisplay from "./CardsDisplay";
 export default class HomeView extends Component {
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid mt-3">
         <div className="row">
           <div className="col">
             <section className="bgimage">

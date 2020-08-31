@@ -89,18 +89,15 @@ class App extends React.Component {
             <main className="row" id="mainbg">
               <Routes />
               <Switch />
-
             </main>
-            <footer className="row">
-              this the footer which doesnt exist in design but we probably
-              should write somethings like:<br></br>
-              <strong>
-                Made with &hearts; by Iva Bozic, Julieta Martin, Irina Eliseeva
-                as a collaboration project for Codeop bootcamp, FS-09{" "}
-              </strong>
-            </footer>
           </BrowserRouter>
         </div>
+        <footer className="footer">
+          <strong>
+            Made with &hearts; by Iva Bozic, Julieta Martin, Irina Eliseeva as a
+            collaboration project for Codeop bootcamp, FS-09
+          </strong>
+        </footer>
       </div>
     );
   }

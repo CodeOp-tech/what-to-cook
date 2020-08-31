@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Detail.css";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -6,6 +7,7 @@ export default class Detail extends Component {
   state = {
     recipe: null,
     isFavourite: 1,
+    userLoggedIn: 0,
   };
 
   //add recipe to favourites
@@ -82,6 +84,35 @@ export default class Detail extends Component {
     }
   };
 
+  isUserLoggedIn = async () => {
+    //check if user logged in
+    //set flag user logged in
+    console.log("checking if user is logged in");
+    let token = localStorage.getItem("token");
+    // console.log("token", token);
+    if (token) {
+      try {
+        await fetch("api/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": token,
+          },
+        });
+        //user is already logged in - changing flag in state
+        this.setState({
+          userLoggedIn: 1,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      this.setState({
+        userLoggedIn: 0,
+      });
+    }
+  };
+
   componentDidMount() {
     const { id } = this.props.match.params;
     fetch(
@@ -99,24 +130,29 @@ export default class Detail extends Component {
         console.log(err);
       });
     //check if the recipe shown is already a favourite
+    this.isUserLoggedIn();
     this.isInFavourites();
     console.log(this.state.recipe);
   }
 
   render() {
-    const { recipe, isFavourite } = this.state;
+    const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
       <div>
         {!recipe ? (
           <span>loading...</span>
         ) : (
-          <div>
+          <div className="mt-3">
             <h3>
               {recipe.title}{" "}
-              {isFavourite ? (
+              {isFavourite && userLoggedIn ? (
                 <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
               ) : (
-                <i className="far fa-star" onClick={this.addToFavourites}></i>
+                <i className="far fa-star" onClick={this.addToFavourites}>
+                  {userLoggedIn ? null : (
+                    <small>Log in to save the recipe.</small>
+                  )}
+                </i>
               )}
             </h3>{" "}
             <img
