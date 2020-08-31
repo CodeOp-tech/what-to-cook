@@ -8,9 +8,9 @@ export default class HomeView extends Component {
         <div className="row">
           <div className="col">
             <section className="bgimage">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div className="container-fluid">
+                <div className="row">
+                  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h3>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna

@@ -1,72 +1,65 @@
 import React from "react";
+import { NavLink, Link } from "react-router-dom";
+
+const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
 class Card extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
+    this.state = {
+      image: "",
+      title: "",
+      summary: "",
+    };
   }
+  componentDidMount = () => {
+    this.displayRandomRecipe();
+  };
+
+  displayRandomRecipe = () => {
+    this.setState({
+      recipes: [],
+    });
+
+    fetch(
+      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          image: res.recipes[0].image,
+
+          title: res.recipes[0].title,
+          summary: res.recipes[0].summary,
+        })
+      )
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   render() {
+    const { title, image, instructions } = this.props;
     return (
-      <div class="card-deck mx-auto">
-        <div class="card">
+      <div className="card-deck mx-auto">
+        <div className="card">
           <img
-            class="card-img-top"
-            src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=970&q=80"
-            alt="cake"
+            className="card-img-top"
+            alt={this.state.title}
+            src={this.state.image}
           />
-          <div class="card-body">
-            <h4 class="card-title">Recipe card 1</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et
-            </p>
+          <div className="card-body">
+            <h4 className="card-title">{this.state.title}</h4>
+            <p className="card-text">{this.state.summary}</p>
           </div>
         </div>
-        <div class="card">
-          <img
-            class="card-img-top"
-            src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=970&q=80"
-            alt="cake"
-          />
-
-          <div class="card-body">
-            <h4 class="card-title">Recipe card 2</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card-img-top"
-            src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=970&q=80"
-            alt="cake"
-          />
-          <div class="card-body">
-            <h4 class="card-title">Recipe card 3</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            class="card-img-top"
-            src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=970&q=80"
-            alt="cake"
-          />
-          <div class="card-body">
-            <h4 class="card-title">Recipe card 4</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et
-            </p>
-          </div>
-        </div>
+        <i className="fas fa-chevron-circle-right fa-lg"></i>
       </div>
     );
   }
