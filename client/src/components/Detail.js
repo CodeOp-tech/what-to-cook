@@ -84,7 +84,34 @@ export default class Detail extends Component {
     }
   };
 
-  isUserLoggedIn() {}
+  isUserLoggedIn = async () => {
+    //check if user logged in
+    //set flag user logged in
+    console.log("checking if user is logged in");
+    let token = localStorage.getItem("token");
+    // console.log("token", token);
+    if (token) {
+      try {
+        await fetch("api/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": token,
+          },
+        });
+        //user is already logged in - changing flag in state
+        this.setState({
+          userLoggedIn: 1,
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      this.setState({
+        userLoggedIn: 0,
+      });
+    }
+  };
 
   componentDidMount() {
     const { id } = this.props.match.params;
@@ -103,6 +130,7 @@ export default class Detail extends Component {
         console.log(err);
       });
     //check if the recipe shown is already a favourite
+    this.isUserLoggedIn();
     this.isInFavourites();
     console.log(this.state.recipe);
   }
