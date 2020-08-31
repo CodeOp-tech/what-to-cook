@@ -57,14 +57,18 @@ export default class CreateView extends Component {
     const { userCreationError, userCreated } = this.state;
     return (
       <React.Fragment>
-         <div className="col-sm-6">
-            <img src="/images/avocado.jpg" alt="avocado" width="" className="" />
+        <div id="f1_container">
+          <div id="f1_card" >
+            <div className="col-sm-6">
+              <img src="/images/avocado.jpg" alt="avocado" width="500" className="rounded-lg mx-auto d-block flip-box-back" id="imagesignup"/>
+            </div>
           </div>
+        </div>
 
-        <div className="col-sm-6">
-          <div className="col-sm-6">
-          <h1>Sign Up</h1>
-            <form onSubmit={this.handleSubmit} className="inputs">
+        <div className="col-sm-6 text-center d-flex justify-content-center align-items-center">
+          <div className="box">
+              <h1 className="mb-4" id="titleSignup">Sign Up</h1>
+              <form onSubmit={this.handleSubmit} className="inputs d-inline-block text-center" id="form-signup">
                 <input
                   type="text"
                   name="username"
@@ -73,6 +77,7 @@ export default class CreateView extends Component {
                   onChange={this.handleInputChange}
                   required
                   pattern="[A-Za-z0-9]{2,}"
+                  className="form-control-lg mb-4"
                 ></input>
                 <input
                   type="password"
@@ -81,10 +86,11 @@ export default class CreateView extends Component {
                   placeholder="Enter your email addres..."
                   onChange={this.handleInputChange}
                   required
+                  className="form-control-lg mb-4"
                 ></input>
-                <button type="sumbit">Register</button>
-            </form>
-          </div>
+                <button type="sumbit" className="form-control-lg" id="buttonCreate">Register</button>
+              </form>
+            </div>
         </div>
               {userCreationError ? (
                 <strong>A user with these credentials already exists</strong>

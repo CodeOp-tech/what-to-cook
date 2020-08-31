@@ -1,27 +1,25 @@
-#buttonCreate {
-    background: #31525B;
+#buttonLogin {
+    background: #FFA101;
     border-radius: 4px;
-    color: #FAE6B1;
+    color: #31525B;
 }
 
-#titleSignup{
-  color: #FFA101;
-  text-shadow: 2px 2px 4px #31525B;
+#titleLogin{
+  color: #31525B;
+  text-shadow: 2px 2px 4px #FFA101;
 }
-
-
 
 /*INPUTSSSS, CON EL ID*/
-#form-signup input{
+#form-login input{
  display: block;
  border-radius: 8px;
- border: #FAE6B1;
  background: #FAE6B1;
+ border: #FAE6B1;
 } 
 
 /*IMAGE*/
 
-#imagesignup{
+#imagelogin{
     box-shadow: 5px 5px 15px grey;
     margin-top: 10px;
 }
