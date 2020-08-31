@@ -1,14 +1,38 @@
 # what-to-cook
 
-An app that let's you search for recipes by inputting a couple of ingredients.
+An app that let's you search for recipes by inputting a couple of ingredients. You can log in and save those recipes as favourites.
 
-## User flow
+## How to run the app
 
-- input ingredients in the search bar
-- get list of recipes (from external API)
-- if you want to save a recipe you need to log in
-- if you don't have a login you have to create one
-- once you are logged in, you can access your saved recipes
+1. Fork or download the app and open the folder in a CLI
+2. Install dependencies using `npm install`
+3. Set up the nodeJS .env file with details on DB connection
+4. To populate the DB run `npm run migrate`
+5. Start the backend server with `npm run start`. The app is served at <http://localhost:5000/>
+6. cd into the client folder and install dependencies with `npm install`
+7. Start the frontend with `npm run start`. The app is served at <http://localhost:3000>
+
+## How to use the app
+
+### Without user account creation
+
+- click inside the search bar input at the top
+- add ingredients separated by commas
+- get back list of recipes you can use with those ingredients
+- click on one recipe to get more details
+
+### With user account creation
+
+- create login on the "Create accout" section
+- log in in the "Login" section
+- click inside the search bar input at the top
+- add ingredients separated by commas
+- get back list of recipes you can use with those ingredients
+- click on one recipe to get more details
+- click on ✩ to save recipe to favourites
+- access favourite recipes in the "Favourites" section
+- click on recipe to view details
+- click on ★ to remove recipe from favourites
 
 ## DB schema
 
