@@ -18,20 +18,28 @@ export default class NavBar extends Component {
     const { userLoggedIn } = this.props;
     return (
       <div className="Navbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a
+        <nav class="navbar navbar-expand-lg navbar-light ">
+          <NavLink to="/" exact className="navbar-brand">
+            <h1> WHAT TO COOK</h1>
+          </NavLink>
+          <button
             class="navbar-toggler"
             type="button"
             data-toggle="collapse"
+            data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
-          </a>
+          </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav">
+            <ul class="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Search />
+              </li>
+
               {userLoggedIn ? null : (
                 <li className="nav-item active">
                   <NavLink to="/create" activeClassName="selected">
@@ -41,7 +49,7 @@ export default class NavBar extends Component {
               )}
 
               {userLoggedIn ? null : (
-                <li className="nav-item active">
+                <li className="nav-item">
                   <NavLink to="/login" activeClassName="selected">
                     Login
                   </NavLink>

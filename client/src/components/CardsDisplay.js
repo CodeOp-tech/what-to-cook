@@ -15,19 +15,18 @@ class CardsDisplay extends React.Component {
         <div
           className="carousel slide"
           data-ride="carousel"
-          data-interval="15000"
+          data-interval="20000"
         >
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <div className="display-4">
-                {" "}
+              <div className="display-4">Slide 1</div>
+              <div className="row">
                 <Card />
               </div>
             </div>
 
             <div className="carousel-item">
               <div className="display-4">
-                {" "}
                 <Card />
               </div>
             </div>

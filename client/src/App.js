@@ -70,14 +70,8 @@ class App extends React.Component {
         <div className="container-fluid">
           <BrowserRouter>
             <div>
-              <header className="row ">
-                <NavLink to="/" exact className="navbar-brand">
-                  <h1 className="col text-left"> WHAT TO COOK</h1>
-                </NavLink>
-                <div className="col text-center mt-4">
-                  <Search />
-                </div>
-                <div className="col text-right mt-4">
+              <header className="row">
+                <div className="col-12">
                   <Navbar
                     userLoggedIn={userLoggedIn}
                     userLoggedOut={this.userLoggedOut}
