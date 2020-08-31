@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Detail.css";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -6,6 +7,7 @@ export default class Detail extends Component {
   state = {
     recipe: null,
     isFavourite: 1,
+    userLoggedIn: 0,
   };
 
   //add recipe to favourites
@@ -82,6 +84,8 @@ export default class Detail extends Component {
     }
   };
 
+  isUserLoggedIn() {}
+
   componentDidMount() {
     const { id } = this.props.match.params;
     fetch(
@@ -104,7 +108,7 @@ export default class Detail extends Component {
   }
 
   render() {
-    const { recipe, isFavourite } = this.state;
+    const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
       <div>
         {!recipe ? (
@@ -113,10 +117,14 @@ export default class Detail extends Component {
           <div>
             <h3>
               {recipe.title}{" "}
-              {isFavourite ? (
+              {isFavourite && userLoggedIn ? (
                 <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
               ) : (
-                <i className="far fa-star" onClick={this.addToFavourites}></i>
+                <i className="far fa-star" onClick={this.addToFavourites}>
+                  {userLoggedIn ? null : (
+                    <small>Log in to save the recipe.</small>
+                  )}
+                </i>
               )}
             </h3>{" "}
             <img
