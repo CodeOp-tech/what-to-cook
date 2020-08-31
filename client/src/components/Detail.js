@@ -142,7 +142,7 @@ export default class Detail extends Component {
         {!recipe ? (
           <span>loading...</span>
         ) : (
-          <div>
+          <div className="mt-3">
             <h3>
               {recipe.title}{" "}
               {isFavourite && userLoggedIn ? (
