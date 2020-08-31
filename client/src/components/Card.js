@@ -47,7 +47,7 @@ class Card extends React.Component {
   render() {
     const { title, image, instructions } = this.props;
     return (
-      <div className="card-deck mx-auto">
+      <div className="col-md-3">
         <div className="card">
           <img
             className="card-img-top"
@@ -59,7 +59,6 @@ class Card extends React.Component {
             <p className="card-text">{this.state.summary}</p>
           </div>
         </div>
-        <i className="fas fa-chevron-circle-right fa-lg"></i>
       </div>
     );
   }

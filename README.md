@@ -1,6 +1,6 @@
 # what-to-cook
 
-An app that let's you search for recipes by inputting a couple of ingredients. You can log in and save those recipes as favourites.
+An app that let's you search for recipes by inputting a number of ingredients. You can log in and save those recipes as favourites.
 
 ## How to run the app
 
@@ -39,17 +39,23 @@ An app that let's you search for recipes by inputting a couple of ingredients. Y
 ## User stories
 
 - user can search a recipe by ingredients
+- user can select a random recipe on homepage
 - user can create account
 - user can log in
-- user can save recipes and view them later
+- user can save recipes and access them later
+- user can log out
 
 ## Features
 
-- Search for recipe
+- Search recipe by ingredients
+
+- Random recipes on homepage
 
 - Account creation
 
-- Login/Logout
+- Login
+
+- Logout
 
 - Adding to Favourites
 
