@@ -48,7 +48,7 @@ class Card extends React.Component {
   render() {
     const { title, image, summary, id } = this.state;
     return (
-      <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+      <div className="col-sm-6 col-md-4 col-lg- col-xl-3">
         {/*col-xx-x controls the number of cards in a single carousel line*/}
         <div className="card">
           <Link to={`/recipe/${id}`}>
