@@ -37,3 +37,26 @@ a {
 a:hover {
   color: #31525b;
 }
+
+.carousel-control-next,
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-control-prev {
+  color: #31525b;
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+  color: black;
+}
+
+/* .carousel .row {
+  margin-left: auto;
+} */
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: relative;
+}

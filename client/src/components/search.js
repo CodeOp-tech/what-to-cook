@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./NavBar.css";
-
-const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
+import { getRecipes } from "../services/DataService";
 
 export default class Search extends Component {
   constructor(props) {
@@ -24,20 +23,9 @@ export default class Search extends Component {
     });
     e.preventDefault();
 
-    fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => this.setState({ recipes: res, loading: false }))
-      .catch((err) => {
-        console.log(err);
-      });
+    getRecipes(ingredients).then((res) =>
+      this.setState({ recipes: res, loading: false })
+    );
   };
 
   handleInput = (e) => {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Detail.css";
-
-const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
+import { getRecipeById } from "../services/DataService";
 
 export default class Detail extends Component {
   state = {
@@ -115,20 +114,9 @@ export default class Detail extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    fetch(
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${RECIPE_API_KEY}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => this.setState({ recipe: res }))
-      .catch((err) => {
-        console.log(err);
-      });
+
+    getRecipeById(id).then((res) => this.setState({ recipe: res }));
+
     //check if the recipe shown is already a favourite
     this.isUserLoggedIn();
     this.isInFavourites();
@@ -157,14 +145,15 @@ export default class Detail extends Component {
             </h3>{" "}
             <i className="far fa-clock" id="icon2"></i>
             <i className="fas fa-concierge-bell" id="icon1"></i>
-            <div className="float-right" id="allrecipe">{recipe.instructions}</div>
-
+            <div className="float-right" id="allrecipe">
+              {recipe.instructions}
+            </div>
             <img
               alt={recipe.title}
               src={recipe.image}
               width="250"
               height="250"
-              className="float-lef" 
+              className="float-lef"
               id="imageDetail"
             />
           </div>
