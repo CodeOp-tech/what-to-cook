@@ -37,14 +37,18 @@ export default class FavouritesView extends Component {
     const { favouriteList } = this.state;
     return (
       <div>
-        {favouriteList.map((favourite) => (
-          <RecipeSearchItem
-            key={favourite.id}
-            id={favourite.recipeId}
-            image={favourite.image}
-            title={favourite.title}
-          />
-        ))}
+        {favouriteList.length > 0 ? (
+          favouriteList.map((favourite) => (
+            <RecipeSearchItem
+              key={favourite.id}
+              id={favourite.recipeId}
+              image={favourite.image}
+              title={favourite.title}
+            />
+          ))
+        ) : (
+          <p>You don't have any favourite recipes. Why don't you add some?</p>
+        )}
       </div>
     );
   }

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Search from "./search";
 import "./NavBar.css";
+import { withRouter } from "react-router";
 
-export default class NavBar extends Component {
+class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,6 +13,8 @@ export default class NavBar extends Component {
   onLogoutPress = (e) => {
     e.preventDefault();
     this.props.userLoggedOut();
+    //after logout redirect to home
+    this.props.history.push(`/`);
   };
 
   render() {
@@ -75,3 +78,5 @@ export default class NavBar extends Component {
     );
   }
 }
+
+export default withRouter(NavBar);

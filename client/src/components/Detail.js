@@ -117,10 +117,10 @@ export default class Detail extends Component {
 
     getRecipeById(id).then((res) => this.setState({ recipe: res }));
 
-    //check if the recipe shown is already a favourite
+    //check if user logged in to enable the STAR method
     this.isUserLoggedIn();
+    // check if recipe is in favourites to set the STAR filled or not
     this.isInFavourites();
-    console.log(this.state.recipe);
   }
 
   render() {
