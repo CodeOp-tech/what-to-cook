@@ -109,7 +109,7 @@ export default class LoginView extends Component {
               <img
                 src="/images/pizza.jpg"
                 alt="pizza"
-                width="500"
+                width="530"
                 className="rounded-lg mx-auto d-block flip-box-back"
                 id="imagelogin"
               />

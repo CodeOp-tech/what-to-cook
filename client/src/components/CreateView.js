@@ -63,7 +63,7 @@ export default class CreateView extends Component {
               <img
                 src="/images/avocado.jpg"
                 alt="avocado"
-                width="500"
+                width="545"
                 className="rounded-lg mx-auto d-block flip-box-back"
                 id="imagesignup"
               />

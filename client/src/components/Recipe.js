@@ -15,16 +15,24 @@ export default class Recipe extends Component {
             )}
 
     render() {
-        const { recipes } = this.state
+        const { recipes, recipe } = this.state
          return (
-
-            <div>
+                //put the information in one block with 8 options in the right)
+            <div className="row">
+            <div className="col-sm-6" id="options">
                 {recipes.map(recipe => (
-                    <RecipeSearchItem key={recipe.id} id={recipe.id} image={recipe.image} title={recipe.title} instrus/>
+                    <RecipeSearchItem 
+                    key={recipe.id} 
+                    id={recipe.id} 
+                    image={recipe.image} 
+                    title={recipe.title} 
+                    instrus/>
+                    
                 ))
             }
             </div>
-            
+            </div>
+           
         )
     }
 }
