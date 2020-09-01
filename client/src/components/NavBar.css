@@ -1,5 +1,6 @@
 header {
   background-color: #fae6b1;
+  padding: 4pt;
 }
 
 nav ul {
@@ -13,7 +14,7 @@ nav li {
 
 nav a {
   color: #31525b;
-  text-shadow: 0px 4px 4px #fefae0;
+  text-shadow: 0px 2px 2px #fefae0;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -23,6 +24,8 @@ nav a {
 
 nav a.selected {
   background-color: #ffa101;
+  padding: 4pt;
+  border-radius: 4px;
 }
 
 nav a:hover {
@@ -30,10 +33,11 @@ nav a:hover {
 }
 
 h1 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 54px;
+  font-family: Dancing Script;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+  line-height: 48px;
   color: #ffa101;
 
   text-shadow: 0px 4px 4px #fefae0;
@@ -42,7 +46,7 @@ h1 {
 #logout {
   /* padding: 24px; */
   color: #31525b;
-  text-shadow: 0px 4px 4px #fefae0;
+  text-shadow: 0px 2px 2px #fefae0;
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -53,4 +57,10 @@ h1 {
 #logout:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+#searchbutton {
+  background-color: #31525b;
+  color: #fefae0;
+  border-radius: 0px 4px 4px 0px;
 }
