@@ -1,4 +1,5 @@
 import recipes from "./DummyData";
+import oneRecipe from "./DummyData1";
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
 function getRecipes(ingredients) {
@@ -26,19 +27,26 @@ function getRecipes(ingredients) {
 
 function getRandomRecipe() {
   console.log("Fetching random recipe");
-  return fetch(
-    `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .catch((err) => {
-      console.log(err);
-    });
+
+  // for production purposes
+
+  // return fetch(
+  //   `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
+  //   {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }
+  // )
+  //   .then((res) => res.json())
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+
+  //for development purposes
+
+  return new Promise((resolve, reject) => resolve(oneRecipe));
 }
 
 function getRecipeById(id) {
