@@ -21,21 +21,18 @@ class CardsDisplay extends React.Component {
           >
             <div className="col-1 text-center d-flex justify-content-center">
               <a
-                class="carousel-control-prev"
+                className="carousel-control-prev"
                 href="#my-slider"
                 role="button"
                 data-slide="prev"
               >
-                <i class="fas fa-chevron-circle-left fa-3x"></i>
-                <span class="sr-only">Previous</span>
+                <i className="fas fa-chevron-circle-left fa-3x"></i>
+                <span className="sr-only">Previous</span>
               </a>
             </div>
             <div className="carousel-inner col">
               <div className="carousel-item active">
                 <div className="row">
-                  <Card />
-                  <Card />
-                  <Card />
                   <Card />
                   <Card />
                   <Card />
@@ -49,20 +46,18 @@ class CardsDisplay extends React.Component {
                   <Card />
                   <Card />
                   <Card />
-                  <Card />
-                  <Card />
                 </div>
               </div>
             </div>
             <div className="col-1 text-center d-flex justify-content-center">
               <a
-                class="carousel-control-next"
+                className="carousel-control-next"
                 href="#my-slider"
                 role="button"
                 data-slide="next"
               >
                 <i className="fas fa-chevron-circle-right fa-3x"></i>
-                <span class="sr-only">Next</span>
+                <span className="sr-only">Next</span>
               </a>
             </div>
           </div>

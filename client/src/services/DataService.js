@@ -1,22 +1,29 @@
+import recipes from "./DummyData";
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
 function getRecipes(ingredients) {
-  return fetch(
-    `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .catch((err) => {
-      console.log(err);
-    });
+  // for production purposes
+
+  // return fetch(
+  //   `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
+  //   {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }
+  // )
+  //   .then((res) => res.json())
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+
+  // for development purposes
+
+  return new Promise((resolve, reject) => resolve(recipes));
 }
 
-function getRandomRecipes() {
+function getRandomRecipe() {
   return fetch(
     `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
     {
@@ -48,4 +55,4 @@ function getRecipeById(id) {
     });
 }
 
-export { getRecipes, getRandomRecipes, getRecipeById };
+export { getRecipes, getRandomRecipe, getRecipeById };

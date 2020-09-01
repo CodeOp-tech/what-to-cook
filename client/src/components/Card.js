@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { getRandomRecipes } from "../services/DataService";
+import { getRandomRecipe } from "../services/DataService";
 
 class Card extends React.Component {
   constructor(props) {
@@ -12,8 +12,7 @@ class Card extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.displayRandomRecipe();
-    console.log(this.state.recipes);
+    // this.displayRandomRecipe(); //uncomment for live data
   };
 
   displayRandomRecipe = () => {
@@ -21,7 +20,7 @@ class Card extends React.Component {
       recipes: [],
     });
 
-    getRandomRecipes().then((res) =>
+    getRandomRecipe().then((res) =>
       this.setState({
         image: res.recipes[0].image,
         title: res.recipes[0].title,
