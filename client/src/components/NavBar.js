@@ -18,12 +18,12 @@ export default class NavBar extends Component {
     const { userLoggedIn } = this.props;
     return (
       <div className="Navbar">
-        <nav class="navbar navbar-expand-lg navbar-light ">
+        <nav className="navbar navbar-expand-lg navbar-light  ">
           <NavLink to="/" exact className="navbar-brand">
-            <h1> WHAT TO COOK</h1>
+            <h1> What To Cook</h1>
           </NavLink>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -31,11 +31,11 @@ export default class NavBar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Search />
               </li>

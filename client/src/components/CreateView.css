@@ -1,14 +1,15 @@
 #buttonCreate {
   background: #31525b;
   border-radius: 4px;
+
   color: #fae6b1;
 }
-
+/*
 #titleSignup {
   color: #ffa101;
-  text-shadow: 2px 2px 4px #31525b;
+ text-shadow: 2px 2px 4px #31525b;
 }
-
+*/
 /*INPUTSSSS, CON EL ID*/
 #form-signup input {
   display: block;

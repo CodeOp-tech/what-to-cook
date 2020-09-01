@@ -2,11 +2,19 @@
   background: #ffa101;
   border-radius: 4px;
   color: #31525b;
+  border-color: #ffa101;
+  box-shadow: 0px 2px 2px #ffa101;
 }
-
+/* Julieta's style
 #titleLogin {
   color: #31525b;
   text-shadow: 2px 2px 4px #ffa101;
+}
+*/
+/*our style from figma*/
+#titleLogin {
+  color: #31525b;
+  text-shadow: 0px 4px 4px #fae6b1;
 }
 
 /*INPUTSSSS, CON EL ID*/

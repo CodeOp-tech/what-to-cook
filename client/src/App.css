@@ -18,14 +18,14 @@ h4 {
 }
 
 input {
-  width: 320px;
+  width: 560px;
 
   background-color: #31525b;
   color: #fefae0;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 32px;
 
-  border-radius: 4px;
+  border-radius: 4px 0px 0px 4px;
 }
 
 /*default placeholder color*/

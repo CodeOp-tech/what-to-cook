@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import "./NavBar.css";
 
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -55,16 +56,15 @@ export default class Search extends Component {
               value={ingredients}
               onChange={this.handleInput}
               maxLength="50"
-              placeholder="Find a recipe by adding ingredients.."
+              placeholder="Find a recipe by adding ingredients..."
             ></input>
 
             <button
-              className="btn btn-outline-secondary"
+              className="btn "
               id="searchbutton"
               onClick={this.searchRecipes}
             >
-              search
-              <i className="fas fa-search"></i>
+              <i className="fas fa-search fa-lg" id="searchbutton"></i>
             </button>
           </div>
           <div>
