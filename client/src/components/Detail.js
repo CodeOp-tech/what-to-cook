@@ -138,12 +138,12 @@ export default class Detail extends Component {
   render() {
     const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
-      <div>
+      <div className="col-sm-6">
         {!recipe ? (
           <span>loading...</span>
         ) : (
-          <div className="mt-3">
-            <h3>
+          <div>
+            <h3 className="float-right mb-4" id="titleDetail">
               {recipe.title}{" "}
               {isFavourite && userLoggedIn ? (
                 <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
@@ -155,13 +155,18 @@ export default class Detail extends Component {
                 </i>
               )}
             </h3>{" "}
+            <i className="far fa-clock" id="icon2"></i>
+            <i className="fas fa-concierge-bell" id="icon1"></i>
+            <div className="float-right" id="allrecipe">{recipe.instructions}</div>
+
             <img
               alt={recipe.title}
               src={recipe.image}
-              width="100"
-              height="100"
+              width="250"
+              height="250"
+              className="float-lef" 
+              id="imageDetail"
             />
-            <div>{recipe.instructions}</div>
           </div>
         )}
       </div>
