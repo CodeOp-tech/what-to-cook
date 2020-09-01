@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-
-const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
+import { getRandomRecipes } from "../services/DataService";
 
 class Card extends React.Component {
   constructor(props) {
@@ -22,27 +21,14 @@ class Card extends React.Component {
       recipes: [],
     });
 
-    fetch(
-      `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) =>
-        this.setState({
-          image: res.recipes[0].image,
-          title: res.recipes[0].title,
-          summary: res.recipes[0].summary,
-          id: res.recipes[0].id,
-        })
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+    getRandomRecipes().then((res) =>
+      this.setState({
+        image: res.recipes[0].image,
+        title: res.recipes[0].title,
+        summary: res.recipes[0].summary,
+        id: res.recipes[0].id,
+      })
+    );
   };
 
   render() {
