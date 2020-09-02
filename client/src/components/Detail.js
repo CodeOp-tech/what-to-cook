@@ -126,37 +126,42 @@ export default class Detail extends Component {
   render() {
     const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
-      <div className="col-sm-6">
+      <div className="container-sm">
         {!recipe ? (
           <span>loading...</span>
         ) : (
-          <div>
-            <h3 className="float-right mb-4" id="titleDetail">
-              {recipe.title}{" "}
-              {isFavourite && userLoggedIn ? (
-                <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
-              ) : (
-                <i className="far fa-star" onClick={this.addToFavourites}>
-                  {userLoggedIn ? null : (
-                    <small>Log in to save the recipe.</small>
-                  )}
-                </i>
-              )}
-            </h3>{" "}
-            <i className="far fa-clock" id="icon2"></i>
-            <i className="fas fa-concierge-bell" id="icon1"></i>
-            <div className="float-right" id="allrecipe">
-              {recipe.instructions}
+          <div className="row mt-4">
+
+            <div className="col-sm-6">
+              <img
+                alt={recipe.title}
+                src={recipe.image}
+                className="image-fluid"
+                id="imageDetail"
+              />
             </div>
-            <img
-              alt={recipe.title}
-              src={recipe.image}
-              width="250"
-              height="250"
-              className="float-lef"
-              id="imageDetail"
-            />
-          </div>
+
+              <div className="col-sm-6 justify-content-center">
+                
+                  <h3 className="mb-6 mb-4" id="titleDetail">
+                  {recipe.title}{" "}
+                  {isFavourite && userLoggedIn ? (
+                    <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
+                  ) : (
+                    <i className="far fa-star" onClick={this.addToFavourites}>
+                        {userLoggedIn ? null : (
+                        <small>Log in to save the recipe.</small>
+                      )}
+                    </i>
+                    )}
+                  </h3>{" "} <br></br> <br></br>
+                  <i className="far fa-clock" id="icon2"></i>
+                  <i className="fas fa-concierge-bell" id="icon1"></i>
+                <div id="allrecipe">
+                    {recipe.instructions}
+                </div>
+              </div>
+            </div>
         )}
       </div>
     );

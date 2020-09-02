@@ -5,7 +5,6 @@
 body {
   height: 100vh;
   background-color: #fefae0;
-  overflow: hidden;
 }
 h3,
 p,
@@ -41,7 +40,6 @@ input::-webkit-input-placeholder {
 
 #mainbg {
   background-color: #fefae0;
-  height: 570pt;
 }
 
 .bgimage {
