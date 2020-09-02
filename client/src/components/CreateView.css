@@ -4,6 +4,7 @@
 
   color: #fae6b1;
 }
+/*
 
 /*INPUTSSSS, CON EL ID*/
 #form-signup input {
@@ -26,11 +27,8 @@
 #f1_container {
   position: relative;
   margin: 10px auto;
-
-  z-index: 1;
-}
-#f1_container {
   perspective: 1000;
+  z-index: 1;
 }
 
 #f1_container:hover #imagesignup {

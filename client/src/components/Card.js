@@ -20,7 +20,6 @@ class Card extends React.Component {
       recipes: [],
     });
 
-
     getRandomRecipe().then((res) =>
       this.setState({
         image: res.recipes[0].image,
@@ -29,7 +28,6 @@ class Card extends React.Component {
         id: res.recipes[0].id,
       })
     );
-
   };
 
   render() {
