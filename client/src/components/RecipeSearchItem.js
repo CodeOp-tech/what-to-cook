@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
-import Recipe from "./Recipe";
+import { Link } from "react-router-dom";
 
 export default class RecipeSearchItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { title, image, id, recipe } = this.props;
+    const { title, image, id } = this.props;
     return (
+
       <div>
         <div className="card mb-4">
           <Link to={`/recipe/${id}`}>
@@ -23,7 +19,7 @@ export default class RecipeSearchItem extends Component {
             height="80" 
             /> </div>
           </Link>
-        </div>
+         </div>
       </div>
     );
   }

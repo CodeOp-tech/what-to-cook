@@ -1,20 +1,42 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { withRouter } from "react-router";
 import RecipeSearchItem from "./RecipeSearchItem";
+import queryString from "query-string";
+import { getRecipes } from "../services/DataService";
 
-export default class Recipe extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            recipes:[]
-        }
+class Recipe extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipes: [],
+    };
+  }
+
+  componentDidMount() {
+    const values = queryString.parse(this.props.location.search);
+    this.getData(values.ingredients);
+  }
+
+
+  componentDidUpdate(prevProps, prevState) {
+    //check if input values changed
+    const values = queryString.parse(this.props.location.search);
+    const previousValues = queryString.parse(prevProps.location.search);
+    if (values.ingredients !== previousValues.ingredients) {
+      this.getData(values.ingredients);
+
     }
+  }
 
-    componentDidMount() {
-        this.setState(
-            { recipes: this.props.location.state.recipes }
-            )}
-
-    render() {
+  getData(ingredients) {
+    // fetch recipe list from external API
+    getRecipes(ingredients)
+      .then((res) => this.setState({ recipes: res }))
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+ render() {
         const { recipes, recipe } = this.state
          return (
             <div className="row mt-4 ml-4 mr-4 mb-4">
@@ -32,5 +54,6 @@ export default class Recipe extends Component {
                 ))}
             </div>
         );
-    }
 }
+
+export default withRouter(Recipe);

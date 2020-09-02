@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./LoginView.css";
+import { withRouter } from "react-router";
 
-export default class LoginView extends Component {
+class LoginView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +49,11 @@ export default class LoginView extends Component {
         let token = json.token;
         console.log(token);
         localStorage.setItem("token", token);
-        // once user is logged in, refresh browser
+
+        //redirect to home on successfull login
+        this.props.history.push(`/`);
+
+        //reload page to get user version of home screen with different nav
         window.location.reload(false);
       } else {
         this.setState({ userLoginError: 1, userLoggedIn: 0 });
@@ -120,3 +125,5 @@ export default class LoginView extends Component {
     );
   }
 }
+
+export default withRouter(LoginView);
