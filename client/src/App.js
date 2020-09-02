@@ -1,7 +1,5 @@
 import React from "react";
-import Search from "./components/search";
-import { NavLink } from "react-router-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 
 import Navbar from "./components/NavBar";
 import Routes from "./components/Routes";

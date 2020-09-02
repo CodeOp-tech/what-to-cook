@@ -1,43 +1,21 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { withRouter } from "react-router";
 import "./NavBar.css";
 
-const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
-
-export default class Search extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       ingredients: "",
       loading: false,
-      recipes: [],
     };
   }
 
   searchRecipes = (e) => {
-    const { ingredients } = this.state;
-
-    this.setState({
-      ingredients: "",
-      loading: true,
-      recipes: [],
-    });
+    const ingredients = this.state.ingredients.replace(/ /g, ",");
     e.preventDefault();
 
-    fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => this.setState({ recipes: res, loading: false }))
-      .catch((err) => {
-        console.log(err);
-      });
+    this.props.history.push(`/recipe?ingredients=${ingredients}`);
   };
 
   handleInput = (e) => {
@@ -46,7 +24,7 @@ export default class Search extends Component {
     });
   };
   render() {
-    const { ingredients, recipes, loading } = this.state;
+    const { ingredients, loading } = this.state;
     return (
       <div>
         <form>
@@ -70,13 +48,13 @@ export default class Search extends Component {
           </div>
           <div>
             {loading ? <span>Loading...</span> : null}
-            {recipes.length > 0 ? (
+            {/* {recipes.length > 0 ? (
               <Redirect
                 to={{ pathname: "/recipe", state: { recipes: recipes } }}
               />
             ) : (
               <Redirect to="/" />
-            )}{" "}
+            )}{" "} */}
             {/* TODO if response empty what? Stay in current location? */}
           </div>
         </form>
@@ -84,3 +62,5 @@ export default class Search extends Component {
     );
   }
 }
+
+export default withRouter(Search);

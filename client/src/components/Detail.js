@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Detail.css";
-
-const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
+import { getRecipeById } from "../services/DataService";
 
 export default class Detail extends Component {
   state = {
@@ -115,59 +114,54 @@ export default class Detail extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    fetch(
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${RECIPE_API_KEY}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => this.setState({ recipe: res }))
-      .catch((err) => {
-        console.log(err);
-      });
-    //check if the recipe shown is already a favourite
+
+    getRecipeById(id).then((res) => this.setState({ recipe: res }));
+
+    //check if user logged in to enable the STAR method
     this.isUserLoggedIn();
+    // check if recipe is in favourites to set the STAR filled or not
     this.isInFavourites();
-    console.log(this.state.recipe);
   }
 
   render() {
     const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
-      <div className="col-sm-6">
+      <div className="container-sm">
         {!recipe ? (
           <span>loading...</span>
         ) : (
-          <div>
-            <h3 className="float-right mb-4" id="titleDetail">
-              {recipe.title}{" "}
-              {isFavourite && userLoggedIn ? (
-                <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
-              ) : (
-                <i className="far fa-star" onClick={this.addToFavourites}>
-                  {userLoggedIn ? null : (
-                    <small>Log in to save the recipe.</small>
-                  )}
-                </i>
-              )}
-            </h3>{" "}
-            <i className="far fa-clock" id="icon2"></i>
-            <i className="fas fa-concierge-bell" id="icon1"></i>
-            <div className="float-right" id="allrecipe">{recipe.instructions}</div>
+          <div className="row mt-4">
 
-            <img
-              alt={recipe.title}
-              src={recipe.image}
-              width="250"
-              height="250"
-              className="float-lef" 
-              id="imageDetail"
-            />
-          </div>
+            <div className="col-sm-6">
+              <img
+                alt={recipe.title}
+                src={recipe.image}
+                className="image-fluid"
+                id="imageDetail"
+              />
+            </div>
+
+              <div className="col-sm-6 justify-content-center">
+                
+                  <h3 className="mb-6 mb-4" id="titleDetail">
+                  {recipe.title}{" "}
+                  {isFavourite && userLoggedIn ? (
+                    <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
+                  ) : (
+                    <i className="far fa-star" onClick={this.addToFavourites}>
+                        {userLoggedIn ? null : (
+                        <small>Log in to save the recipe.</small>
+                      )}
+                    </i>
+                    )}
+                  </h3>{" "} <br></br> <br></br>
+                  <i className="far fa-clock" id="icon2"></i>
+                  <i className="fas fa-concierge-bell" id="icon1"></i>
+                <div id="allrecipe">
+                    {recipe.instructions}
+                </div>
+              </div>
+            </div>
         )}
       </div>
     );

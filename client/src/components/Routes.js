@@ -9,35 +9,34 @@ import LoginView from "./LoginView";
 import Detail from "./Detail";
 
 export default class Routes extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Switch>
         <Route path="/" exact>
           <HomeView />
         </Route>
+
         <Route path="/create" exact>
           <CreateView />
         </Route>
+
         <Route path="/favourites" exact>
           <FavouritesView />
         </Route>
-        
-        <Route path="/recipe" render={(props) => <Recipe {...props} />} exact />
+
         <Route
           path="/recipe/:id"
           render={(props) => <Detail {...props} />}
           exact
         />
 
+        <Route path="/recipe">
+          <Recipe />
+        </Route>
+
         <Route path="/favourites" exact>
           <FavouritesView />
         </Route>
-
-        
 
         <Route path="/login">
           <LoginView />
