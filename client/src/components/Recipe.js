@@ -17,12 +17,14 @@ class Recipe extends Component {
     this.getData(values.ingredients);
   }
 
+
   componentDidUpdate(prevProps, prevState) {
     //check if input values changed
     const values = queryString.parse(this.props.location.search);
     const previousValues = queryString.parse(prevProps.location.search);
     if (values.ingredients !== previousValues.ingredients) {
       this.getData(values.ingredients);
+
     }
   }
 
@@ -34,26 +36,24 @@ class Recipe extends Component {
         console.log(err);
       });
   }
-
-  render() {
-    const { recipes } = this.state;
-    return (
-      //put the information in one block with 8 options in the right)
-      <div className="row">
-        <div className="col-sm-6" id="options">
-          {recipes.map((recipe) => (
-            <RecipeSearchItem
-              key={recipe.id}
-              id={recipe.id}
-              image={recipe.image}
-              title={recipe.title}
-              instrus
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
+ render() {
+        const { recipes, recipe } = this.state
+         return (
+            <div className="row mt-4 ml-4 mr-4 mb-4">
+             {recipes.map(recipe => (
+              <div className="col-sm-6 col-md-4 col-lg-3">
+                <RecipeSearchItem 
+                    key={recipe.id} 
+                    id={recipe.id} 
+                    image={recipe.image} 
+                    title={recipe.title} 
+                    className="mb-4"
+                    instrus
+                />
+                  </div>  
+                ))}
+            </div>
+        );
 }
 
 export default withRouter(Recipe);
