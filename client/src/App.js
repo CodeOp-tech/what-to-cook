@@ -80,6 +80,7 @@ class App extends React.Component {
             </div>
             <main>
               <Routes />
+
             </main>
           </BrowserRouter>
         </div>
