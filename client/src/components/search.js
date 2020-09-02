@@ -28,13 +28,14 @@ class Search extends Component {
     return (
       <div>
         <form>
-          <div>
+          <div className="row ">
             <input
               type="text"
               value={ingredients}
               onChange={this.handleInput}
               maxLength="50"
-              placeholder="Find a recipe by adding ingredients..."
+              placeholder="  Find a recipe by adding ingredients..."
+              id="search-input"
             ></input>
 
             <button
@@ -42,7 +43,7 @@ class Search extends Component {
               id="searchbutton"
               onClick={this.searchRecipes}
             >
-              <i className="fas fa-search fa-lg" id="searchbutton"></i>
+              <i className="fas fa-search fa-lg " id="searchbutton"></i>
             </button>
           </div>
           <div>

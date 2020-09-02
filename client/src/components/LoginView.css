@@ -5,13 +5,7 @@
   border-color: #ffa101;
   box-shadow: 0px 2px 2px #ffa101;
 }
-/* Julieta's style
-#titleLogin {
-  color: #31525b;
-  text-shadow: 2px 2px 4px #ffa101;
-}
-*/
-/*our style from figma*/
+
 #titleLogin {
   color: #31525b;
   text-shadow: 0px 4px 4px #fae6b1;
@@ -31,25 +25,21 @@
 #imagelogin {
   box-shadow: 5px 5px 15px grey;
   margin-top: 10px;
+  transform-style: preserve-3d;
+  transition: all 1s linear;
 }
 
 #f1_container {
   position: relative;
   margin: 10px auto;
-  width: 450px;
-  height: 281px;
+
   z-index: 1;
 }
 #f1_container {
   perspective: 1000;
 }
-#f1_card {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: all 1s linear;
-}
-#f1_container:hover #f1_card {
+
+#f1_container:hover #imagelogin {
   transform: rotateY(180deg);
 }
 .face {
