@@ -1,0 +1,62 @@
+.card-img-top {
+  height: 25vh;
+  display: flex;
+}
+/* .card-text {
+  font-size: 14pt;
+  text-align: center;
+} */
+.card-title {
+  text-align: center;
+}
+.card-body {
+  border-radius: 8px;
+  min-width: 240px;
+}
+.card {
+  /* height: 50vh; */ /*if we want to keep the summary in the card set to 50vh*/
+  height: 40vh;
+  border-radius: 8px;
+  background: #fae6b1;
+  box-shadow: 0px 4px 4px #e0e0e0;
+}
+.card-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 0.5rem;
+}
+.carousel-inner {
+  height: 40vh; /* set to 50 if we show summary */
+}
+
+a {
+  text-decoration: none;
+  color: #31525b;
+}
+
+a:hover {
+  color: #31525b;
+}
+
+.carousel-control-next,
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-control-prev {
+  color: #31525b;
+}
+
+.carousel-control-next:focus,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-prev:hover {
+  color: black;
+}
+
+/* .carousel .row {
+  margin-left: auto;
+} */
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: relative;
+}

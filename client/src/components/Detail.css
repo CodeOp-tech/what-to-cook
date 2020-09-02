@@ -1,0 +1,39 @@
+small {
+  font-family: "Poppins", sans-serif;
+  font-size: small;
+}
+
+#imageDetail {
+  box-shadow: 5px 5px 15px grey;
+  margin-top: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#titleDetail{
+  font-family: "Dancing Script";
+  font-size: 40px;
+  color: #31525b;
+  text-shadow: 2px 2px 2px #dbb97e;
+  
+}
+
+#icon1{
+  font-size:38px;
+  color: #ffa101;
+  text-shadow: 2px 2px 4px grey;
+}
+
+#icon2{
+  font-size:38px;
+  color: #ffa101;
+  text-shadow: 2px 2px 4px grey;
+  
+}
+
+#allrecipe{
+  font-family: "Poppins", sans-serif;
+  Font-style: "SemiBold";
+  text-align: right;
+  color: #31525b;
+}

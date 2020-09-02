@@ -1,0 +1,75 @@
+header {
+  background-color: #fae6b1;
+  padding: 4pt;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav a {
+  color: #31525b;
+  text-shadow: 0px 2px 2px #fefae0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+nav a.selected {
+  background-color: #ffa101;
+  padding: 4pt;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: #31525b;
+}
+
+h1 {
+  font-family: Dancing Script;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+
+  color: #ffa101;
+
+  text-shadow: 0px 4px 4px #fefae0;
+}
+
+#logout {
+  /* padding: 24px; */
+  color: #31525b;
+  text-shadow: 0px 2px 2px #fefae0;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+#logout:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#searchbutton {
+  background-color: #31525b;
+  color: #fefae0;
+  border-radius: 0px 4px 4px 0px;
+  position: relative;
+  margin-right: 10pt;
+}
+
+#search-input {
+  width: 40vw;
+}
+i {
+  margin-left: 12px;
+}
