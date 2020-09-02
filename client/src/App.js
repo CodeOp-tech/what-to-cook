@@ -80,7 +80,7 @@ class App extends React.Component {
                 </div>
               </header>
             </div>
-            <main className="row" id="mainbg">
+            <main>
               <Routes />
               <Switch />
             </main>

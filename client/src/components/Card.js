@@ -21,7 +21,7 @@ class Card extends React.Component {
     this.setState({
       recipes: [],
     });
-
+    /*
     fetch(
       `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
       {
@@ -43,6 +43,7 @@ class Card extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+      */
   };
 
   render() {
