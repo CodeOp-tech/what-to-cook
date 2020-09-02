@@ -80,7 +80,7 @@ class App extends React.Component {
             </div>
             <main>
               <Routes />
-              <Switch />
+              {/* <Switch /> */}
             </main>
           </BrowserRouter>
         </div>
