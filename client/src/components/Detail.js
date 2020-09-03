@@ -62,6 +62,8 @@ export default class Detail extends Component {
     const { id } = this.props.match.params;
     //check if recipe in favourites
     //if it is, change state isFavourite 1
+
+    console.log("ID sending to backend", id);
     try {
       const result = await fetch(`/api/favourites/${id}`, {
         method: "GET",
@@ -91,7 +93,7 @@ export default class Detail extends Component {
     // console.log("token", token);
     if (token) {
       try {
-        await fetch("api/user", {
+        await fetch("/api/user", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -114,6 +116,8 @@ export default class Detail extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
+    // localStorage.setItem("recipe", window.location.href);
+    // console.log(window.location.href);
 
     getRecipeById(id).then((res) => this.setState({ recipe: res }));
 
@@ -126,38 +130,67 @@ export default class Detail extends Component {
   render() {
     const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
-      <div className="h-100">
+      <div className="h-100 mb-5">
         {!recipe ? (
           <span>loading...</span>
         ) : (
           <div className="row mt-4 h-100">
-
-            <div className="col-sm-6 d-flex justify-content-center align-items-center">
+            <div className="col-sm-6 d-flex justify-content-center align-items-start mt-5">
               <img
                 alt={recipe.title}
                 src={recipe.image}
-                className="image-fluid"
+                className=""
                 id="imageDetail"
               />
             </div>
 
-            <div className="col-sm-6 justify-content-center d-flex align-items-center">
+            <div className="col-sm-6 justify-content-center d-flex align-items-center mt-5 ">
               <div>
-                <h3 className="mb-6 align-items-center" id="titleDetail">
+                <h3
+                  className="mb-5 align-items-left text-left"
+                  id="titleDetail"
+                >
                   {recipe.title}{" "}
                   {isFavourite && userLoggedIn ? (
-                <i className="fas fa-star align-items-center" onClick={this.removeFromFavourites}></i>
+                    <i
+                      className="fas fa-star align-items-center"
+                      onClick={this.removeFromFavourites}
+                    ></i>
                   ) : (
-                <i className="far fa-star" onClick={this.addToFavourites}>
-                  {userLoggedIn ? null : (
-                <small>Log in to save the recipe.</small>
-                  )}
-                </i>
+                    <i className="far fa-star" onClick={this.addToFavourites}>
+                      {userLoggedIn ? null : (
+                        <small>Log in to save the recipe.</small>
+                      )}
+                    </i>
                   )}
                 </h3>{" "}
-                  <div id="allrecipe">
-                    {recipe.instructions}
+                <div id="allrecipe text-left mt-4">
+                  <div className="recipe-sub-title mb-2">INGREDIENTS</div>
+                  {recipe.extendedIngredients.map((ingredient) => (
+                    <div>
+                      {" "}
+                      <span className="ingredients">
+                        {ingredient.name}{" "}
+                      </span> - {ingredient.amount} {ingredient.unit}{" "}
                     </div>
+                  ))}
+
+                  {recipe.analyzedInstructions.length > 0 ? (
+                    <div className="instructions mt-3">
+                      <div className="recipe-sub-title mb-2">STEPS</div>
+                      {recipe.analyzedInstructions[0].steps.map((step) => (
+                        <div className="mb-2">
+                          <span className="step">{step.number}.</span>{" "}
+                          {step.step}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="instructions mt-3">
+                      {recipe.instructions}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
