@@ -126,13 +126,13 @@ export default class Detail extends Component {
   render() {
     const { recipe, isFavourite, userLoggedIn } = this.state;
     return (
-      <div className="container-sm">
+      <div className="h-100">
         {!recipe ? (
           <span>loading...</span>
         ) : (
-          <div className="row mt-4">
+          <div className="row mt-4 h-100">
 
-            <div className="col-sm-6">
+            <div className="col-sm-6 d-flex justify-content-center align-items-center">
               <img
                 alt={recipe.title}
                 src={recipe.image}
@@ -141,27 +141,26 @@ export default class Detail extends Component {
               />
             </div>
 
-              <div className="col-sm-6 justify-content-center">
-                
-                  <h3 className="mb-6 mb-4" id="titleDetail">
+            <div className="col-sm-6 justify-content-center d-flex align-items-center">
+              <div>
+                <h3 className="mb-6 align-items-center" id="titleDetail">
                   {recipe.title}{" "}
                   {isFavourite && userLoggedIn ? (
-                    <i class="fas fa-star" onClick={this.removeFromFavourites}></i>
+                <i className="fas fa-star align-items-center" onClick={this.removeFromFavourites}></i>
                   ) : (
-                    <i className="far fa-star" onClick={this.addToFavourites}>
-                        {userLoggedIn ? null : (
-                        <small>Log in to save the recipe.</small>
-                      )}
-                    </i>
-                    )}
-                  </h3>{" "} <br></br> <br></br>
-                  <i className="far fa-clock" id="icon2"></i>
-                  <i className="fas fa-concierge-bell" id="icon1"></i>
-                <div id="allrecipe">
+                <i className="far fa-star" onClick={this.addToFavourites}>
+                  {userLoggedIn ? null : (
+                <small>Log in to save the recipe.</small>
+                  )}
+                </i>
+                  )}
+                </h3>{" "}
+                  <div id="allrecipe">
                     {recipe.instructions}
-                </div>
+                    </div>
               </div>
             </div>
+          </div>
         )}
       </div>
     );

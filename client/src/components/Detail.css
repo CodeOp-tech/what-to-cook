@@ -5,9 +5,10 @@ small {
 
 #imageDetail {
   box-shadow: 5px 5px 15px grey;
-  margin-top: 10px;
+  margin-top: 50px;
   border-radius: 8px;
-  text-align: left;
+  max-width: 100%;
+  height: auto;
 }
 
 #titleDetail{
@@ -15,25 +16,14 @@ small {
   font-size: 40px;
   color: #31525b;
   text-shadow: 2px 2px 2px #dbb97e;
-  
+  text-align: center;
 }
 
-#icon1{
-  font-size:38px;
-  color: #ffa101;
-  text-shadow: 2px 2px 4px grey;
-}
-
-#icon2{
-  font-size:38px;
-  color: #ffa101;
-  text-shadow: 2px 2px 4px grey;
-  
-}
 
 #allrecipe{
   font-family: "Poppins", sans-serif;
   Font-style: "SemiBold";
   text-align: right;
   color: #31525b;
+  text-align: center;
 }
