@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./CreateView.css";
+import { withRouter } from "react-router";
 
-export default class CreateView extends Component {
+class CreateView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,6 +45,7 @@ export default class CreateView extends Component {
           userCreated: 1,
           userCreationError: 0,
         });
+        this.props.history.push("/login" + this.props.location.search);
       } else {
         this.setState({ userCreationError: 1, userCreated: 0 });
       }
@@ -120,3 +122,5 @@ export default class CreateView extends Component {
     );
   }
 }
+
+export default withRouter(CreateView);

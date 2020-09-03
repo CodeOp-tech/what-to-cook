@@ -18,7 +18,12 @@ class NavBar extends Component {
   };
 
   render() {
-    const { userLoggedIn } = this.props;
+    const { userLoggedIn, location } = this.props;
+    let appendToUrl = "";
+    //console.log(location);
+    if (location.pathname) {
+      appendToUrl = "?returnUrl=" + location.pathname;
+    }
     return (
       <div className="Navbar">
         <nav className="navbar navbar-expand-lg navbar-light  ">
@@ -45,7 +50,10 @@ class NavBar extends Component {
 
               {userLoggedIn ? null : (
                 <li className="nav-item active">
-                  <NavLink to="/create" activeClassName="selected">
+                  <NavLink
+                    to={`/create${appendToUrl}`}
+                    activeClassName="selected"
+                  >
                     Create account
                   </NavLink>
                 </li>
@@ -53,7 +61,10 @@ class NavBar extends Component {
 
               {userLoggedIn ? null : (
                 <li className="nav-item">
-                  <NavLink to="/login" activeClassName="selected">
+                  <NavLink
+                    to={`/login${appendToUrl}`}
+                    activeClassName="selected"
+                  >
                     Login
                   </NavLink>
                 </li>
