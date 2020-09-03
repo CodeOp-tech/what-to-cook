@@ -39,9 +39,9 @@ class App extends React.Component {
           },
         });
         //user is already logged in - changing flag in state
-        console.log(
-          "user logged in, this should change userLoggedIn state to 1"
-        );
+        // console.log(
+        //   "user logged in, this should change userLoggedIn state to 1"
+        // );
         this.setState({
           userLoggedIn: 1,
         });
@@ -80,7 +80,6 @@ class App extends React.Component {
             </div>
             <main>
               <Routes />
-
             </main>
           </BrowserRouter>
         </div>

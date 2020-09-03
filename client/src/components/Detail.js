@@ -93,7 +93,7 @@ export default class Detail extends Component {
     // console.log("token", token);
     if (token) {
       try {
-        await fetch("api/user", {
+        await fetch("/api/user", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
