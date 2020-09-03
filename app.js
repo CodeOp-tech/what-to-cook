@@ -13,7 +13,6 @@ var apiRouter = require("./routes/api");
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/react/examples/build/index.html"));
 });
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
