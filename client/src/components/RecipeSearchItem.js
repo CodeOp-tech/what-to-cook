@@ -9,7 +9,7 @@ export default class RecipeSearchItem extends Component {
       <div>
         <div className="card mb-4">
           <Link to={`/recipe/${id}`}>
-            <h2 className="card-title">{title}</h2>
+            <h2 className="card-title mt-4">{title}</h2>
             <div className="mt-4 ml-3 mr-3 mb-4">
             <img 
             className="card-img-top" 
