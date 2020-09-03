@@ -62,6 +62,8 @@ export default class Detail extends Component {
     const { id } = this.props.match.params;
     //check if recipe in favourites
     //if it is, change state isFavourite 1
+
+    console.log("ID sending to backend", id);
     try {
       const result = await fetch(`/api/favourites/${id}`, {
         method: "GET",

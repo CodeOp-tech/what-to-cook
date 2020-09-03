@@ -102,6 +102,8 @@ router.get("/favourites/all", isUserLoggedIn, async (req, res) => {
 
 //check if recipe is favourite for logged in user
 router.get("/favourites/:recipeId", isUserLoggedIn, async (req, res) => {
+  console.log("userId", req.userId);
+  console.log("paramaters", req.params.recipeId);
   try {
     results = await db(
       `select * from favourites where userId='${req.userId}' and recipeId ='${req.params.recipeId};'`
@@ -153,7 +155,7 @@ router.post("/categories", isUserLoggedIn, async (req, res) => {
 });
 
 //add favourite to category
-router.put("/favourites/:id", isUserLoggedIn, async (req, res) => {
+router.put("/favourites/category/:id", isUserLoggedIn, async (req, res) => {
   const { categoryId } = req.body;
   const { id } = req.params;
 
