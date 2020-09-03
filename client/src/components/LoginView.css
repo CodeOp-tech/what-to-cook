@@ -27,6 +27,7 @@
   margin-top: 10px;
   transform-style: preserve-3d;
   transition: all 1s linear;
+  width: 500px;
 }
 
 #f1_container {
