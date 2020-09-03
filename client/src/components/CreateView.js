@@ -57,9 +57,9 @@ export default class CreateView extends Component {
     const { userCreationError, userCreated } = this.state;
     return (
       <React.Fragment>
-        <div className="row h-100">
+        <div className="row">
           <div className="col-md-6 text-center d-flex justify-content-center align-items-center">
-            <div className="box w-100 ">
+            <div className="box w-100">
               <h1 className="mb-4" id="titleSignup">
                 Sign Up
               </h1>
@@ -107,14 +107,11 @@ export default class CreateView extends Component {
               </div>
             </div>
           </div>
-          <div
-            className="col col-xl-4 col-lg-6 col-md-6 col-sm-8 h-100"
-            id="f1_container"
-          >
+          <div className="col-md-6" id="f1_container">
             <img
               src="/images/avocado.jpg"
               alt="avocado"
-              className="rounded-lg img-fluid flip-box-back d-flex align-items-center"
+              className="rounded-lg img-fluid flip-box-back"
               id="imagesignup"
             />
           </div>
