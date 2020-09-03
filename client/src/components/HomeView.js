@@ -11,10 +11,11 @@ export default class HomeView extends Component {
               <div className="container-fluid">
                 <div className="row">
                   <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h3>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud
+                    <h3 className="intro">
+                      Are you hungry? Feeling like cooking something new? We are
+                      here to help you! Just add the ingredients you want to
+                      use... More than 360,000 recipes in our database for you
+                      to enjoy cooking !
                     </h3>
                   </div>
                 </div>

@@ -6,23 +6,23 @@ function getRecipes(ingredients) {
   console.log("Fetching recipes for ", ingredients);
   // for production purposes
 
-  // return fetch(
-  //   `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
-  //   {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }
-  // )
-  //   .then((res) => res.json())
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  return fetch(
+    `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+    });
 
   // for development purposes
 
-  return new Promise((resolve, reject) => resolve(recipes));
+  // return new Promise((resolve, reject) => resolve(recipes));
 }
 
 function getRandomRecipe() {
@@ -30,23 +30,23 @@ function getRandomRecipe() {
 
   // for production purposes
 
-  // return fetch(
-  //   `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
-  //   {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }
-  // )
-  //   .then((res) => res.json())
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
+  return fetch(
+    `https://api.spoonacular.com/recipes/random?number=1&apiKey=${RECIPE_API_KEY}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+    });
 
   //for development purposes
 
-  return new Promise((resolve, reject) => resolve(oneRecipe));
+  // return new Promise((resolve, reject) => resolve(oneRecipe));
 }
 
 function getRecipeById(id) {

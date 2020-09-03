@@ -50,6 +50,8 @@ class LoginView extends Component {
         console.log(token);
         localStorage.setItem("token", token);
 
+        let previousURL = localStorage.getItem("recipe");
+
         //redirect to home on successfull login
         this.props.history.push(`/`);
 
