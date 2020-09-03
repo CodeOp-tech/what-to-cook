@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Detail.css";
 import { getRecipeById } from "../services/DataService";
+import { toFraction } from "../calculations/fractions";
 
 export default class Detail extends Component {
   state = {
@@ -15,7 +16,7 @@ export default class Detail extends Component {
     const bodyToSend = {
       recipeId: this.props.match.params.id,
       image: this.state.recipe.image,
-      title: this.state.recipe.title,
+      title: this.state.recipe.title.replace(/'/g, "''"),
     };
     try {
       await fetch("/api/favourites", {
@@ -171,7 +172,8 @@ export default class Detail extends Component {
                       {" "}
                       <span className="ingredients">
                         {ingredient.name}{" "}
-                      </span> - {ingredient.amount} {ingredient.unit}{" "}
+                      </span> - {toFraction(ingredient.amount)}{" "}
+                      {ingredient.unit}{" "}
                     </div>
                   ))}
 
