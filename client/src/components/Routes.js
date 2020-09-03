@@ -7,6 +7,7 @@ import FavouritesView from "./FavouritesView";
 import Recipe from "./Recipe";
 import LoginView from "./LoginView";
 import Detail from "./Detail";
+import FavFolder from "./FavFolder";
 
 export default class Routes extends Component {
   render() {
@@ -22,6 +23,10 @@ export default class Routes extends Component {
 
         <Route path="/favourites" exact>
           <FavouritesView />
+        </Route>
+
+        <Route path="/favourites/collections">
+          <FavFolder />
         </Route>
 
         <Route

@@ -36,7 +36,6 @@ export default class FavouritesView extends Component {
   render() {
     const { favouriteList } = this.state;
     return (
-
       <div>
         {favouriteList.length > 0 ? (
           favouriteList.map((favourite) => (
@@ -50,7 +49,6 @@ export default class FavouritesView extends Component {
         ) : (
           <p>You don't have any favourite recipes. Why don't you add some?</p>
         )}
-
       </div>
     );
   }
