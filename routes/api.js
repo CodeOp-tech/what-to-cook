@@ -155,7 +155,7 @@ router.post("/categories", isUserLoggedIn, async (req, res) => {
 });
 
 //add favourite to category
-router.put("/favourites/category/:id", isUserLoggedIn, async (req, res) => {
+router.put("/category/favourites/:id", isUserLoggedIn, async (req, res) => {
   const { categoryId } = req.body;
   const { id } = req.params;
 
