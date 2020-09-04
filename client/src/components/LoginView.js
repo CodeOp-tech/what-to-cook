@@ -120,11 +120,14 @@ class LoginView extends Component {
             </div>
           </div>
 
-          <div className="col-md-6" id="f1_container">
+          <div
+            className="col-md-6 d-flex justify-content-center mb-5"
+            id="f1_container"
+          >
             <img
               src="/images/pizza.jpg"
               alt="pizza"
-              className="rounded-lg img-fluid flip-box-back"
+              className="rounded-lg flip-box-back"
               id="imagelogin"
             />
           </div>

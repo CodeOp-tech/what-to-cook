@@ -10,17 +10,15 @@ export default class HomeView extends Component {
             <section className="bgimage">
               <div className="container-fluid">
                 <div className="row">
-                  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 intro-bg">
                     <h3 className="intro">
-                      Are you hungry? Feeling like cooking something new? We are
-                      here to help you! Just add the ingredients you want to
-                      use... More than 360,000 recipes in our database for you
-                      to enjoy cooking !
+                      Don't know what to cook? <br></br>We've got you covered!
                     </h3>
                   </div>
                 </div>
               </div>
             </section>
+            <h1 className="text-center mt-4">Today's specials!</h1>
           </div>
         </div>
         <CardsDisplay />
