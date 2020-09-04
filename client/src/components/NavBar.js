@@ -26,7 +26,7 @@ class NavBar extends Component {
     }
     return (
       <div className="Navbar">
-        <nav className="navbar navbar-expand-lg navbar-light  ">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <NavLink to="/" exact className="navbar-brand">
             <h1> What To Cook</h1>
           </NavLink>
@@ -39,17 +39,17 @@ class NavBar extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon "></span>
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
+              <li className="nav-item ">
                 <Search />
               </li>
 
               {userLoggedIn ? null : (
-                <li className="nav-item active">
+                <li className="nav-item active ">
                   <NavLink
                     to={`/create${appendToUrl}`}
                     activeClassName="selected"
@@ -60,7 +60,7 @@ class NavBar extends Component {
               )}
 
               {userLoggedIn ? null : (
-                <li className="nav-item">
+                <li className="nav-item ">
                   <NavLink
                     to={`/login${appendToUrl}`}
                     activeClassName="selected"
@@ -71,7 +71,7 @@ class NavBar extends Component {
               )}
 
               {userLoggedIn ? (
-                <li className="nav-item active">
+                <li className="nav-item active ">
                   <NavLink to="/favourites" activeClassName="selected">
                     Favourites
                   </NavLink>

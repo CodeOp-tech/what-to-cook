@@ -63,13 +63,23 @@ h1 {
   background-color: #31525b;
   color: #fefae0;
   border-radius: 0px 4px 4px 0px;
-  position: relative;
+  position: sticky;
   margin-right: 10pt;
+  border-color: #fefae0;
 }
 
 #search-input {
+  border-color: #fefae0;
   width: 40vw;
+  margin-left: 15px;
 }
+
 i {
   margin-left: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  #search-input {
+    width: 60vw;
+  }
 }
