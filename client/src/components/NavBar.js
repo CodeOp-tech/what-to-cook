@@ -3,6 +3,15 @@ import { NavLink } from "react-router-dom";
 import Search from "./search";
 import "./NavBar.css";
 import { withRouter } from "react-router";
+import {
+  Button,
+  HoveredButton,
+  Section,
+  SelectedButton,
+  Title,
+} from "./Lib.js";
+
+import styled from "styled-components";
 
 class NavBar extends Component {
   constructor(props) {
@@ -25,67 +34,79 @@ class NavBar extends Component {
       appendToUrl = "?returnUrl=" + location.pathname;
     }
     return (
-      <div className="Navbar">
-        <nav className="navbar navbar-expand-lg navbar-light">
-          <NavLink to="/" exact className="navbar-brand">
-            <h1> What To Cook</h1>
-          </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon "></span>
-          </button>
+      <Section>
+        <div className="Navbar">
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <NavLink to="/" exact className="navbar-brand">
+              <Title> What To Cook</Title>
+            </NavLink>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon "></span>
+            </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item ">
-                <Search />
-              </li>
-
-              {userLoggedIn ? null : (
-                <li className="nav-item active ">
-                  <NavLink
-                    to={`/create${appendToUrl}`}
-                    activeClassName="selected"
-                  >
-                    Create account
-                  </NavLink>
-                </li>
-              )}
-
-              {userLoggedIn ? null : (
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav ml-auto">
                 <li className="nav-item ">
-                  <NavLink
-                    to={`/login${appendToUrl}`}
-                    activeClassName="selected"
-                  >
-                    Login
-                  </NavLink>
+                  <Search />
                 </li>
-              )}
 
-              {userLoggedIn ? (
-                <li className="nav-item active ">
-                  <NavLink to="/favourites" activeClassName="selected">
-                    Favourites
-                  </NavLink>
-                </li>
-              ) : null}
-              {userLoggedIn ? (
-                <li onClick={this.onLogoutPress} id="logout">
-                  Logout
-                </li>
-              ) : null}
-            </ul>
-          </div>
-        </nav>
-      </div>
+                {userLoggedIn ? null : (
+                  <li className="nav-item active ">
+                    <NavLink
+                      to={`/create${appendToUrl}`}
+                      activeClassName="selected"
+                    >
+                      Create account
+                    </NavLink>
+                  </li>
+                )}
+
+                {userLoggedIn ? null : (
+                  <li className="nav-item ">
+                    <NavLink
+                      to={`/login${appendToUrl}`}
+                      activeClassName="selected"
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                )}
+
+                {userLoggedIn ? (
+                  <li className="nav-item active ">
+                    <NavLink to="/favourites" activeClassName="selected">
+                      Favourites
+                    </NavLink>
+                  </li>
+                ) : null}
+                {userLoggedIn ? (
+                  <li onClick={this.onLogoutPress} id="logout">
+                    Logout
+                  </li>
+                ) : null}
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <Button
+          onClick={<SelectedButton></SelectedButton>}
+          onHover={<HoveredButton></HoveredButton>}
+        >
+          Test button
+        </Button>
+      </Section>
     );
   }
 }
