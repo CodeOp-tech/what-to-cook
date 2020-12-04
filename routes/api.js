@@ -8,6 +8,9 @@ const jwt = require("jsonwebtoken");
 const secretword = process.env.SECRETWORD;
 const isUserLoggedIn = require("./guards/isUserLoggedIn");
 const checkUserExists = require("./guards/checkUserExists");
+const fetch = require('node-fetch');
+const mockedRecipes = require('../mock/DummyData')
+const RECIPE_API_KEY = process.env.RECIPE_API_KEY;
 
 router.use(bodyParser.json());
 
@@ -168,5 +171,30 @@ router.put("/category/favourites/:id", isUserLoggedIn, async (req, res) => {
     res.status(400).send({ msg: err });
   }
 });
+
+router.get("/recipes", async(req, res) => {
+  const { ingredients } = req.query;
+
+  // dev
+  return res.json(mockedRecipes)
+
+  fetch(
+    `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
+    .then(async (apiRes) => {
+      const recipeList = await apiRes.json()
+      
+      res.json(recipeList)
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+})
 
 module.exports = router;

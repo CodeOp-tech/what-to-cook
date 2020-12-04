@@ -1,4 +1,3 @@
-import recipes from "./DummyData";
 import oneRecipe from "./DummyData1";
 const RECIPE_API_KEY = process.env.REACT_APP_RECIPE_API_KEY;
 
@@ -7,7 +6,7 @@ function getRecipes(ingredients) {
   // for production purposes
 
   return fetch(
-    `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=8&apiKey=${RECIPE_API_KEY}`,
+    `api/recipes?ingredients=${ingredients}`,
     {
       method: "GET",
       headers: {

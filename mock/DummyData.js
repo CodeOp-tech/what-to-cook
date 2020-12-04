@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     id: 586674,
     title: "Three Wise Men Shot",
