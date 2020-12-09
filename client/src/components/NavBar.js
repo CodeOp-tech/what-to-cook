@@ -3,13 +3,7 @@ import { NavLink } from "react-router-dom";
 import Search from "./search";
 import "./NavBar.css";
 import { withRouter } from "react-router";
-import {
-  Button,
-  HoveredButton,
-  Section,
-  SelectedButton,
-  Title,
-} from "./Lib.js";
+import { Button, Nav, StyledBurger, Ul } from "./Lib.js";
 
 import styled from "styled-components";
 
@@ -34,52 +28,58 @@ class NavBar extends Component {
       appendToUrl = "?returnUrl=" + location.pathname;
     }
     return (
-      <Section>
+      <Nav>
         <div className="Navbar">
           <nav className="navbar navbar-expand-lg navbar-light">
             <NavLink to="/" exact className="navbar-brand">
-              <Title> What To Cook</Title>
+              <div className="logo"> What To Cook</div>
             </NavLink>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon "></span>
-            </button>
+            <StyledBurger>
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon "></span>
+              </button>
+            </StyledBurger>
 
             <div
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav ml-auto">
+              <Ul>
                 <li className="nav-item ">
                   <Search />
                 </li>
 
                 {userLoggedIn ? null : (
                   <li className="nav-item active ">
-                    <NavLink
-                      to={`/create${appendToUrl}`}
-                      activeClassName="selected"
-                    >
-                      Create account
-                    </NavLink>
+                    <Button>
+                      <NavLink
+                        to={`/create${appendToUrl}`}
+                        activeClassName="selected"
+                      >
+                        Create account
+                      </NavLink>
+                    </Button>
                   </li>
                 )}
 
                 {userLoggedIn ? null : (
                   <li className="nav-item ">
-                    <NavLink
-                      to={`/login${appendToUrl}`}
-                      activeClassName="selected"
-                    >
-                      Login
-                    </NavLink>
+                    <Button>
+                      <NavLink
+                        to={`/login${appendToUrl}`}
+                        activeClassName="selected"
+                      >
+                        Login
+                      </NavLink>
+                    </Button>
                   </li>
                 )}
 
@@ -95,18 +95,11 @@ class NavBar extends Component {
                     Logout
                   </li>
                 ) : null}
-              </ul>
+              </Ul>
             </div>
           </nav>
         </div>
-
-        <Button
-          onClick={<SelectedButton></SelectedButton>}
-          onHover={<HoveredButton></HoveredButton>}
-        >
-          Test button
-        </Button>
-      </Section>
+      </Nav>
     );
   }
 }
