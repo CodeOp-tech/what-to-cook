@@ -12,7 +12,7 @@ class Card extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.displayRandomRecipe(); //uncomment for live data
+    //this.displayRandomRecipe(); //uncomment for live data
   };
 
   displayRandomRecipe = () => {

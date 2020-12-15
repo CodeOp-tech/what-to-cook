@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./LoginView.css";
 import { withRouter } from "react-router";
+import queryString from "query-string";
 
 class LoginView extends Component {
   constructor(props) {
@@ -50,9 +51,14 @@ class LoginView extends Component {
         console.log(token);
         localStorage.setItem("token", token);
 
-        //redirect to home on successfull login
-        this.props.history.push(`/`);
-
+        //redirect to recipe if user was there before
+        if (this.props.location.search) {
+          const values = queryString.parse(this.props.location.search);
+          this.props.history.push(values.returnUrl);
+        } else {
+          //redirect to home on successfull login if user wasn't on recipe
+          this.props.history.push(`/`);
+        }
         //reload page to get user version of home screen with different nav
         window.location.reload(false);
       } else {
@@ -114,11 +120,14 @@ class LoginView extends Component {
             </div>
           </div>
 
-          <div className="col-md-6" id="f1_container">
+          <div
+            className="col-md-6 d-flex justify-content-center mb-5"
+            id="f1_container"
+          >
             <img
               src="/images/pizza.jpg"
               alt="pizza"
-              className="rounded-lg img-fluid flip-box-back"
+              className="rounded-lg flip-box-back"
               id="imagelogin"
             />
           </div>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./CreateView.css";
+import { withRouter } from "react-router";
 
-export default class CreateView extends Component {
+class CreateView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,6 +45,7 @@ export default class CreateView extends Component {
           userCreated: 1,
           userCreationError: 0,
         });
+        this.props.history.push("/login" + this.props.location.search);
       } else {
         this.setState({ userCreationError: 1, userCreated: 0 });
       }
@@ -57,9 +59,9 @@ export default class CreateView extends Component {
     const { userCreationError, userCreated } = this.state;
     return (
       <React.Fragment>
-        <div className="row h-100">
+        <div className="row">
           <div className="col-md-6 text-center d-flex justify-content-center align-items-center">
-            <div className="box w-100 ">
+            <div className="box w-100">
               <h1 className="mb-4" id="titleSignup">
                 Sign Up
               </h1>
@@ -108,13 +110,13 @@ export default class CreateView extends Component {
             </div>
           </div>
           <div
-            className="col col-xl-4 col-lg-6 col-md-6 col-sm-8 h-100"
+            className="col-md-6 d-flex justify-content-center mb-5"
             id="f1_container"
           >
             <img
               src="/images/avocado.jpg"
               alt="avocado"
-              className="rounded-lg img-fluid flip-box-back d-flex align-items-center"
+              className="rounded-lg flip-box-back"
               id="imagesignup"
             />
           </div>
@@ -123,3 +125,5 @@ export default class CreateView extends Component {
     );
   }
 }
+
+export default withRouter(CreateView);

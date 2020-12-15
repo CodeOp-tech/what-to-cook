@@ -3,7 +3,6 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  height: 100vh;
   background-color: #fefae0;
 }
 h3,
@@ -47,6 +46,7 @@ input::-webkit-input-placeholder {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  border-radius: 4pt;
 }
 
 .bgimage h3 {
@@ -64,4 +64,28 @@ input::-webkit-input-placeholder {
   padding-right: 10px;
   font-size: 0.8em;
   background: #b3dee5;
+
+  z-index: 100;
+}
+
+.intro {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 5%;
+  line-height: 1.7em;
+}
+
+.intro-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 40%;
+  margin: 3%;
+  border-radius: 2pt;
+}
+@media screen and (max-width: 768px) {
+  .intro {
+    font-size: 1.5em;
+  }
+  .intro-bg {
+    max-width: 80%;
+  }
 }

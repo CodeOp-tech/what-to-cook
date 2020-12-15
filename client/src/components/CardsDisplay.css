@@ -1,13 +1,12 @@
 .card-img-top {
-  height: 25vh;
+  height: 20vh;
   display: flex;
 }
-/* .card-text {
-  font-size: 14pt;
-  text-align: center;
-} */
+
 .card-title {
   text-align: center;
+  font-size: 22pt;
+  margin: 5%;
 }
 .card-body {
   border-radius: 8px;

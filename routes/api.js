@@ -102,6 +102,8 @@ router.get("/favourites/all", isUserLoggedIn, async (req, res) => {
 
 //check if recipe is favourite for logged in user
 router.get("/favourites/:recipeId", isUserLoggedIn, async (req, res) => {
+  console.log("userId", req.userId);
+  console.log("paramaters", req.params.recipeId);
   try {
     results = await db(
       `select * from favourites where userId='${req.userId}' and recipeId ='${req.params.recipeId};'`
@@ -126,6 +128,44 @@ router.delete("/favourites", isUserLoggedIn, async (req, res) => {
     res.status(200).send({ msg: "favourite removed" });
   } catch (err) {
     res.status(400).send({ msg: "error, nothing removed" });
+  }
+});
+
+//get all categories for a user
+router.get("/categories", isUserLoggedIn, async (req, res) => {
+  try {
+    results = await db(`select * from categories where userId='${req.userId}'`);
+    res.status(200).send(results.data);
+  } catch (err) {
+    res.status(400).send({ msg: err });
+  }
+});
+
+// post new category for a user
+router.post("/categories", isUserLoggedIn, async (req, res) => {
+  const { title } = req.body;
+  try {
+    await db(
+      `insert into categories (userId, title) values ('${req.userId}', '${title}');`
+    );
+    res.status(200).send({ msg: "Category inserted!" });
+  } catch (err) {
+    res.status(400).send({ msg: err });
+  }
+});
+
+//add favourite to category
+router.put("/category/favourites/:id", isUserLoggedIn, async (req, res) => {
+  const { categoryId } = req.body;
+  const { id } = req.params;
+
+  try {
+    await db(
+      `update favourites set categoryId='${categoryId}'  where id='${id}'; `
+    );
+    res.status(200).send({ msg: "Favourite recipe inserted into category!" });
+  } catch (err) {
+    res.status(400).send({ msg: err });
   }
 });
 

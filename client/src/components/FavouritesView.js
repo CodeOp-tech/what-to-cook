@@ -37,20 +37,23 @@ export default class FavouritesView extends Component {
     const { favouriteList } = this.state;
     return (
 
-      <div>
+       <div className="row mt-4 ml-4 mr-4 mb-4">
+
         {favouriteList.length > 0 ? (
           favouriteList.map((favourite) => (
+            <div className="col-sm-6 col-md-4 col-lg-3">
             <RecipeSearchItem
               key={favourite.id}
               id={favourite.recipeId}
               image={favourite.image}
               title={favourite.title}
+              className="mb-4"
             />
+            </div>
           ))
         ) : (
           <p>You don't have any favourite recipes. Why don't you add some?</p>
         )}
-
       </div>
     );
   }

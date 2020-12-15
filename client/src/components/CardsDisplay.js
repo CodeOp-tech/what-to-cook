@@ -12,7 +12,7 @@ class CardsDisplay extends React.Component {
   render() {
     return (
       <div>
-        <div className="carousel mt-4">
+        <div className="carousel mt-4 mb-5">
           <div
             className="carousel slide row "
             data-ride="carousel"
