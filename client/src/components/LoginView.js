@@ -1,7 +1,57 @@
 import React, { Component } from "react";
-import "./LoginView.css";
 import { withRouter } from "react-router";
 import queryString from "query-string";
+import styled from 'styled-components';
+
+const Div = styled.div`
+  display: flex;
+  height: 100%;
+`
+const Column = styled.div`
+  flex-basis: 50%;
+  flex: 1;
+  align-self: center;
+  text-align: center;
+`
+const Button = styled.button`
+  background: #ffa101;
+  border-radius: 4px;
+  color: #31525b;
+  border-color: #ffa101;
+  width: 25%;
+  height: 50px;
+`
+const Imagesignup = styled.img`
+  box-shadow: 5px 5px 15px grey;
+  margin-top: 30px;
+  transform-style: preserve-3d;
+  transition: all 1s linear;
+  width: 500px;
+  &:hover {
+    transform: rotateY(180deg);
+  }
+`
+const Input = styled.input`
+  display: block;
+  color: #849aa0;
+  border-radius: 8px;
+  border: #fae6b1;
+  background: #fae6b1;
+  margin-bottom: 20px; 
+  width: 50%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  ::placeholder {
+    color: #849aa0;
+    text-align: center;
+  }
+`
+const H1 = styled.h1`
+  color: #ffa101;
+  text-shadow: 0px 4px 4px #fae6b1;
+  margin-bottom: 20px;
+`
 
 class LoginView extends Component {
   constructor(props) {
@@ -74,64 +124,44 @@ class LoginView extends Component {
     const { userLoginError, errorMessage } = this.state;
     return (
       <React.Fragment>
-        <div className="row">
-          <div className="col-md-6 text-center d-flex justify-content-center align-items-center">
-            <div className="box w-100">
-              <h1 className="mb-4" id="titleLogin">
-                Log In
-              </h1>
-              <div className="row justify-content-center">
-                <div className="col col-xl-6 col-lg-8 col-md-10 col-sm-10 col-8">
-                  <form
-                    onSubmit={this.handleSubmit}
-                    className="form"
-                    id="form-login"
-                  >
-                    <input
-                      type="text"
-                      name="username"
-                      value={username}
-                      placeholder="Username..."
-                      onChange={this.handleInputChange}
-                      required
-                      pattern="[A-Za-z0-9]{2,}"
-                      className="form-control form-control-lg mb-4 custom-input-placeholder"
-                    ></input>
-                    <input
-                      type="password"
-                      name="password"
-                      value={password}
-                      placeholder="Password..."
-                      onChange={this.handleInputChange}
-                      required
-                      className="form-control form-control-lg mb-4 custom-input-placeholder"
-                    ></input>
-                    <button
-                      type="sumbit"
-                      className="form-control-lg"
-                      id="buttonLogin"
-                    >
-                      Submit
-                    </button>
-                    {userLoginError ? <p>{errorMessage}</p> : null}
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="col-md-6 d-flex justify-content-center mb-5"
-            id="f1_container"
-          >
-            <img
+        <Div>
+          <Column>
+            <H1>
+              Log In
+            </H1>
+            <form
+              onSubmit={this.handleSubmit}
+              >
+              <Input
+                type="text"
+                name="username"
+                value={username}
+                placeholder="Username..."
+                onChange={this.handleInputChange}
+                required
+                pattern="[A-Za-z0-9]{2,}"
+              ></Input>
+              <Input
+                type="password"
+                name="password"
+                value={password}
+                placeholder="Password..."
+                onChange={this.handleInputChange}
+                required
+              ></Input>
+              <Button type="sumbit">
+                Submit
+              </Button>
+                  {userLoginError ? <p>{errorMessage}</p> : null}
+            </form>
+          </Column>
+          <Column>
+            <Imagesignup
               src="/images/pizza.jpg"
               alt="pizza"
-              className="rounded-lg flip-box-back"
-              id="imagelogin"
             />
-          </div>
-        </div>
+          </Column>
+        </Div>
       </React.Fragment>
     );
   }
